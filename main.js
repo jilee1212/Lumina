@@ -76,14 +76,24 @@ function toggleTheme() {
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function () {
-    setLanguage(currentLang); // Set initial language to English
+    // Initialize theme
+    const theme = localStorage.getItem('theme') || 'light';
+    document.body.classList.toggle('dark', theme === 'dark');
+    updateThemeButton();
 
-    // Mobile Menu Toggle
+    // Initialize language
+    const language = localStorage.getItem('language') || 'en';
+    updateLanguage(language);
+    updateLanguageButton();
+
+    // Initialize mobile menu
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
-    mobileMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
 
     // Smooth Scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -312,4 +322,57 @@ document.addEventListener('DOMContentLoaded', function () {
     for (let i = 0; i < numParticles; i++) {
         createParticle();
     }
-}); 
+});
+
+// Theme toggle functionality
+function toggleTheme() {
+    const isDark = document.body.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    updateThemeButton();
+}
+
+function updateThemeButton() {
+    const isDark = document.body.classList.contains('dark');
+    const themeButtons = document.querySelectorAll('#theme-toggle, #theme-toggle-mobile');
+    themeButtons.forEach(button => {
+        button.innerHTML = isDark ? 
+            '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>' :
+            '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>';
+    });
+}
+
+// Language toggle functionality
+function toggleLanguage() {
+    const currentLang = localStorage.getItem('language') || 'en';
+    const newLang = currentLang === 'en' ? 'ko' : 'en';
+    updateLanguage(newLang);
+    localStorage.setItem('language', newLang);
+    updateLanguageButton();
+}
+
+function updateLanguage(lang) {
+    document.querySelectorAll('[data-lang-key]').forEach(element => {
+        const key = element.getAttribute('data-lang-key');
+        if (translations[lang] && translations[lang][key]) {
+            if (element.tagName === 'INPUT' && element.type === 'text') {
+                element.placeholder = translations[lang][key];
+            } else {
+                element.textContent = translations[lang][key];
+            }
+        }
+    });
+}
+
+function updateLanguageButton() {
+    const currentLang = localStorage.getItem('language') || 'en';
+    const langButtons = document.querySelectorAll('#language-toggle, #language-toggle-mobile');
+    langButtons.forEach(button => {
+        button.textContent = currentLang.toUpperCase();
+    });
+}
+
+// Add event listeners for theme and language toggles
+document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
+document.getElementById('theme-toggle-mobile')?.addEventListener('click', toggleTheme);
+document.getElementById('language-toggle')?.addEventListener('click', toggleLanguage);
+document.getElementById('language-toggle-mobile')?.addEventListener('click', toggleLanguage); 
