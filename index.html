@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina ($LMN) - Interactive Whitepaper</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="leading-normal light">
+    <!-- Header Section -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm transition-colors duration-300">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-[#2c3e50] flex items-center">
+                <span class="mr-2 text-[#F5A623]">&#x20BF;</span> <span data-lang-key="luminaTitle">Lumina</span>
+            </a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#vision" class="nav-link text-gray-700" data-lang-key="navVision">Vision</a>
+                <a href="#tokenomics" class="nav-link text-gray-700" data-lang-key="navTokenomics">Tokenomics</a>
+                <a href="#ecosystem" class="nav-link text-gray-700" data-lang-key="navEcosystem">Ecosystem</a>
+                <a href="#roadmap" class="nav-link text-gray-700" data-lang-key="navRoadmap">Roadmap</a>
+                <a href="#security" class="nav-link text-gray-700" data-lang-key="navSecurity">Security</a>
+                <button id="language-toggle" class="px-3 py-1 rounded-full bg-gray-200 text-gray-800 text-sm font-semibold hover:bg-gray-300 transition-colors">KO / EN</button>
+                <button id="theme-toggle" class="px-3 py-1 rounded-full bg-gray-200 text-gray-800 text-sm font-semibold hover:bg-gray-300 transition-colors">💡 / 🌙</button>
+            </div>
+            <div class="md:hidden flex items-center space-x-2">
+                <button id="language-toggle-mobile" class="px-2 py-1 rounded-full bg-gray-200 text-gray-800 text-sm font-semibold">KO / EN</button>
+                <button id="theme-toggle-mobile" class="px-2 py-1 rounded-full bg-gray-200 text-gray-800 text-sm font-semibold">💡 / 🌙</button>
+                <button id="mobile-menu-button" class="focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#vision" class="block py-2 px-4 text-sm hover:bg-gray-200" data-lang-key="navVision">Vision</a>
+            <a href="#tokenomics" class="block py-2 px-4 text-sm hover:bg-gray-200" data-lang-key="navTokenomics">Tokenomics</a>
+            <a href="#ecosystem" class="block py-2 px-4 text-sm hover:bg-gray-200" data-lang-key="navEcosystem">Ecosystem</a>
+            <a href="#roadmap" class="block py-2 px-4 text-sm hover:bg-gray-200" data-lang-key="navRoadmap">Roadmap</a>
+            <a href="#security" class="block py-2 px-4 text-sm hover:bg-gray-200" data-lang-key="navSecurity">Security</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="relative py-20 md:py-32 text-center bg-white overflow-hidden transition-colors duration-300">
+            <div id="particle-container"></div>
+            <div class="relative z-10 container mx-auto px-6">
+                <h1 class="text-4xl md:text-6xl font-bold text-[#2c3e50] mb-4" data-lang-key="heroTitle">Lumina: A New Dawn in DeFi</h1>
+                <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8" data-lang-key="heroSubtitle">
+                    Maximizing transparency, accessibility, and reliability in the decentralized finance (DeFi) ecosystem, creating a secure and efficient digital asset environment for all investors.
+                </p>
+                <div class="space-x-4">
+                    <a href="#ecosystem" class="bg-[#4A90E2] text-white font-bold py-3 px-8 rounded-full hover:bg-blue-600 transition-transform transform hover:scale-105" data-lang-key="exploreEcosystemBtn">Explore Ecosystem</a>
+                    <a href="#" class="bg-gray-200 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-gray-300 transition-transform transform hover:scale-105" data-lang-key="downloadWhitepaperBtn">Download Whitepaper</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision Section -->
+        <section id="vision" class="py-20 transition-colors duration-300">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-title" data-lang-key="whyLuminaTitle">Why is Lumina Different?</h2>
+                <p class="section-subtitle" data-lang-key="whyLuminaSubtitle">
+                    Lumina clearly recognizes the existing issues in DeFi and provides practical solutions through technology. We aim to be a complete ecosystem that creates sustainable value, not just a simple project.
+                </p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <div class="text-4xl mb-4 text-[#4A90E2]">⚙️</div>
+                        <h3 class="text-xl font-bold mb-2" data-lang-key="visionArbitrageTitle">Advanced Arbitrage Engine</h3>
+                        <p class="text-gray-600" data-lang-key="visionArbitrageText">Generates stable and sustainable profits through AI-driven arbitrage strategies, laying the foundation for ecosystem growth and staking rewards.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <div class="text-4xl mb-4 text-[#4A90E2]">🔒</div>
+                        <h3 class="text-xl font-bold mb-2" data-lang-key="visionSecurityTitle">Robust Security Architecture</h3>
+                        <p class="text-gray-600" data-lang-key="visionSecurityText">Prioritizes user assets through regular smart contract audits, multi-signature wallets, and bug bounty programs.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <div class="text-4xl mb-4 text-[#4A90E2]">⚡️</div>
+                        <h3 class="text-xl font-bold mb-2" data-lang-key="visionGasEfficiencyTitle">Optimized Gas Efficiency</h3>
+                        <p class="text-gray-600" data-lang-key="visionGasEfficiencyText">Implements Layer-2 scaling solutions for high transaction throughput and low gas fees, maximizing user experience.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <div class="text-4xl mb-4 text-[#4A90E2]">📈</div>
+                        <h3 class="text-xl font-bold mb-2" data-lang-key="visionTokenEconomyTitle">Sustainable Token Economy</h3>
+                        <p class="text-gray-600" data-lang-key="visionTokenEconomyText">Utilizes token burning mechanisms driven by DEX profits to sustainably increase $LMN value and ensure scarcity.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tokenomics Section -->
+        <section id="tokenomics" class="py-20 bg-white transition-colors duration-300">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h2 class="section-title" data-lang-key="tokenomicsTitle">$LMN Tokenomics</h2>
+                    <p class="section-subtitle" data-lang-key="tokenomicsSubtitle">
+                        The $LMN token is the core of the Lumina ecosystem, providing diverse utilities beyond a mere asset for participation and growth. We build trust through transparent distribution and a sustainable value model.
+                    </p>
+                </div>
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="chart-container h-auto md:h-[450px]">
+                        <canvas id="tokenDistributionChart"></canvas>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 text-center lg:text-left" data-lang-key="tokenKeyRolesTitle">Key Roles of the Token</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start p-4 rounded-lg bg-gray-50 transition-colors duration-300">
+                                <span class="text-2xl mr-4">🗳️</span>
+                                <div>
+                                    <h4 class="font-bold" data-lang-key="roleGovernanceTitle">Governance Participation</h4>
+                                    <p class="text-gray-600" data-lang-key="roleGovernanceText">Vote on key protocol decisions to jointly shape the future of the ecosystem.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start p-4 rounded-lg bg-gray-50 transition-colors duration-300">
+                                <span class="text-2xl mr-4">💰</span>
+                                <div>
+                                    <h4 class="font-bold" data-lang-key="roleStakingRewardsTitle">Staking Rewards</h4>
+                                    <p class="text-gray-600" data-lang-key="roleStakingRewardsText">Stake tokens and earn stable APY returns along with additional benefits.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start p-4 rounded-lg bg-gray-50 transition-colors duration-300">
+                                <span class="text-2xl mr-4">💸</span>
+                                <div>
+                                    <h4 class="font-bold" data-lang-key="roleFeeDiscountTitle">Fee Discount</h4>
+                                    <p class="text-gray-600" data-lang-key="roleFeeDiscountText">Receive discounts on trading fees on Lumina DEX for more efficient trading.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start p-4 rounded-lg bg-gray-50 transition-colors duration-300">
+                                <span class="text-2xl mr-4">💧</span>
+                                <div>
+                                    <h4 class="font-bold" data-lang-key="roleLiquidityIncentivesTitle">Liquidity Provision Incentives</h4>
+                                    <p class="text-gray-600" data-lang-key="roleLiquidityIncentivesText">Provide liquidity to the DEX and receive $LMN token rewards.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-20">
+                    <h3 class="text-2xl font-bold mb-6 text-center" data-lang-key="valueMechanismTitle">Value Appreciation Mechanism: Buyback & Burn</h3>
+                    <p class="text-center text-gray-600 max-w-2xl mx-auto mb-8" data-lang-key="valueMechanismText">Lumina uses a portion of the profits generated from the DEX to buy back and burn $LMN tokens from the market. This process continuously reduces the circulating supply, playing a key role in increasing the token's scarcity and value over the long term.</p>
+                    <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8 text-center">
+                        <div class="p-6 bg-white rounded-xl shadow-md w-full md:w-1/4 transition-colors duration-300">
+                            <p class="text-3xl mb-2">①</p>
+                            <p class="font-bold" data-lang-key="step1DEXProfit">DEX Profit Generation</p>
+                        </div>
+                        <div class="text-2xl text-[#4A90E2] font-bold transform md:rotate-0 rotate-90">&rarr;</div>
+                        <div class="p-6 bg-white rounded-xl shadow-md w-full md:w-1/4 transition-colors duration-300">
+                            <p class="text-3xl mb-2">②</p>
+                            <p class="font-bold" data-lang-key="step2Buyback">$LMN Market Buyback</p>
+                        </div>
+                        <div class="text-2xl text-[#4A90E2] font-bold transform md:rotate-0 rotate-90">&rarr;</div>
+                        <div class="p-6 bg-white rounded-xl shadow-md w-full md:w-1/4 transition-colors duration-300">
+                            <p class="text-3xl mb-2">③</p>
+                            <p class="font-bold" data-lang-key="step3Burn">Token Burn</p>
+                        </div>
+                        <div class="text-2xl text-[#F5A623] font-bold transform md:rotate-0 rotate-90">&rarr;</div>
+                        <div class="p-6 bg-white rounded-xl shadow-md w-full md:w-1/4 transition-colors duration-300">
+                            <p class="text-3xl mb-2">🔥</p>
+                            <p class="font-bold" data-lang-key="step4ValueIncrease">Value Increase</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ecosystem Section -->
+        <section id="ecosystem" class="py-20 transition-colors duration-300">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h2 class="section-title" data-lang-key="ecosystemTitle">Lumina Ecosystem</h2>
+                    <p class="section-subtitle" data-lang-key="ecosystemSubtitle">
+                        Introducing Lumina's two core pillars: the DEX and the Staking Program. Each component is designed to synergize, providing users with the best DeFi experience and stable income generation opportunities.
+                    </p>
+                </div>
+
+                <div class="w-full max-w-4xl mx-auto">
+                    <div class="mb-4 flex space-x-4 p-2 bg-gray-200 rounded-xl justify-center transition-colors duration-300">
+                        <button data-tab="dex" class="tab-button w-full py-2 px-4 rounded-lg text-lg font-semibold transition-colors duration-300 bg-[#4A90E2] text-white" data-lang-key="dexTabBtn">Lumina DEX</button>
+                        <button data-tab="staking" class="tab-button w-full py-2 px-4 rounded-lg text-lg font-semibold transition-colors duration-300" data-lang-key="stakingTabBtn">Lumina Staking</button>
+                    </div>
+
+                    <div id="dex-content" class="tab-content bg-white p-8 rounded-xl shadow-lg transition-colors duration-300">
+                        <h3 class="text-3xl font-bold mb-4" data-lang-key="dexContentTitle">Efficient and Secure Decentralized Exchange</h3>
+                        <p class="text-gray-600 mb-6" data-lang-key="dexContentText">Based on the Automated Market Maker (AMM) model, anyone can easily and quickly swap tokens and provide liquidity. We offer the best trading environment with optimized routing and low fees.</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center"><span class="text-green-500 mr-3">✓</span> <strong data-lang-key="dexFeatureSwap">Token Swaps:</strong> Seamlessly trade various token pairs.</li>
+                            <li class="flex items-center"><span class="text-green-500 mr-3">✓</span> <strong data-lang-key="dexFeatureFarming">Liquidity Farming:</strong> Provide liquidity and earn trading fees and $LMN rewards.</li>
+                            <li class="flex items-center"><span class="text-green-500 mr-3">✓</span> <strong data-lang-key="dexFeatureUX">User-Friendly Interface:</strong> Intuitive UI/UX for easy use by beginners.</li>
+                        </ul>
+                    </div>
+
+                    <div id="staking-content" class="tab-content hidden bg-white p-8 rounded-xl shadow-lg transition-colors duration-300">
+                        <h3 class="text-3xl font-bold mb-4" data-lang-key="stakingContentTitle">More Than Just APY: True Value</h3>
+                        <p class="text-gray-600 mb-6" data-lang-key="stakingContentText">Stake your $LMN to earn stable income and become a core member of the Lumina ecosystem. Long-term holders receive even greater benefits.</p>
+                        
+                        <div class="bg-gray-100 p-6 rounded-lg transition-colors duration-300">
+                            <h4 class="text-xl font-bold mb-4 text-center" data-lang-key="stakingCalculatorTitle">Estimated Profit Calculator</h4>
+                            <div class="grid md:grid-cols-3 gap-4 items-end">
+                                <div>
+                                    <label for="staking-amount" class="block text-sm font-medium text-gray-700" data-lang-key="stakingAmountLabel">$LMN Staking Amount</label>
+                                    <input type="number" id="staking-amount" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 transition-colors duration-300" placeholder="10000">
+                                </div>
+                                <div>
+                                    <label for="staking-period" class="block text-sm font-medium text-gray-700" data-lang-key="stakingPeriodLabel">Lock-up Period</label>
+                                    <select id="staking-period" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 transition-colors duration-300">
+                                        <option value="36" data-lang-key="period30">30 Days (APY 36%)</option>
+                                        <option value="42" data-lang-key="period90">90 Days (APY 42%)</option>
+                                        <option value="50" selected data-lang-key="period180">180 Days (APY 50%)</option>
+                                    </select>
+                                </div>
+                                <div class="text-center md:text-left">
+                                    <p class="text-sm text-gray-500" data-lang-key="estimatedAnnualProfit">Estimated Annual Profit</p>
+                                    <p id="staking-result" class="text-2xl font-bold text-[#4A90E2]"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-16 bg-white p-8 rounded-xl shadow-lg max-w-4xl mx-auto transition-colors duration-300">
+                    <h3 class="text-2xl font-bold mb-4 text-center" data-lang-key="defiExplainerTitle">DeFi Concept Explainer ✨</h3>
+                    <p class="text-gray-600 mb-6 text-center" data-lang-key="defiExplainerSubtitle">Curious about DeFi terms? Type in a term you'd like to understand, and Lumina's LLM will explain it simply and concisely.</p>
+                    <div class="flex flex-col md:flex-row gap-4 mb-6">
+                        <input type="text" id="defi-term-input" class="flex-grow rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-3 transition-colors duration-300" placeholder="e.g., AMM, Yield Farming, Impermanent Loss">
+                        <button id="explain-defi-button" class="bg-[#F5A623] text-white font-bold py-3 px-6 rounded-md hover:bg-yellow-600 transition-colors flex-shrink-0 flex items-center justify-center">
+                            <span data-lang-key="explainButton">Explain</span>
+                            <span id="explain-defi-spinner" class="loading-spinner ml-2 hidden"></span>
+                        </button>
+                    </div>
+                    <div id="defi-explanation-output" class="bg-gray-50 p-4 rounded-lg min-h-[100px] text-gray-800 border border-gray-200 transition-colors duration-300">
+                        Explanation will appear here.
+                    </div>
+                    <p id="defi-error-message" class="text-red-500 text-sm mt-2 hidden" data-lang-key="defiErrorMessage">An error occurred. Please try again.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Roadmap Section -->
+        <section id="roadmap" class="py-20 transition-colors duration-300">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h2 class="section-title" data-lang-key="roadmapTitle">Roadmap</h2>
+                    <p class="section-subtitle" data-lang-key="roadmapSubtitle">
+                        Lumina has a clear vision and a phased execution plan. We will grow with the community by sharing a transparent development process.
+                    </p>
+                </div>
+                <div class="relative wrap overflow-hidden p-10 h-full">
+                    <div class="border-2-2 absolute border-opacity-20 border-gray-700 h-full border" style="left: 50%"></div>
+                    
+                    <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto font-semibold text-lg text-white">1</h1>
+                        </div>
+                        <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-item cursor-pointer transition-colors duration-300">
+                            <h3 class="font-bold text-gray-800 text-xl" data-lang-key="roadmapQ32025Title">Q3 2025: Project Launch</h3>
+                            <p class="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100 timeline-details hidden" data-lang-key="roadmapQ32025Text">Whitepaper release, smart contract development and audit, community building initiated.</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto text-white font-semibold text-lg">2</h1>
+                        </div>
+                        <div class="order-1 bg-[#4A90E2] text-white rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-item cursor-pointer transition-colors duration-300">
+                            <h3 class="font-bold text-xl" data-lang-key="roadmapQ42025Title">Q4 2025: Token Launch</h3>
+                            <p class="text-sm leading-snug tracking-wide timeline-details hidden" data-lang-key="roadmapQ42025Text">$LMN public sale/airdrop, Lumina DEX Alpha/Beta launch, initial liquidity pool establishment.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto font-semibold text-lg text-white">3</h1>
+                        </div>
+                        <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-item cursor-pointer transition-colors duration-300">
+                            <h3 class="font-bold text-gray-800 text-xl" data-lang-key="roadmapQ12026Title">Q1 2026: Ecosystem Activation</h3>
+                            <p class="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100 timeline-details hidden" data-lang-key="roadmapQ12026Text">$LMN Staking Program official launch, Lumina DEX core feature enhancement.</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto text-white font-semibold text-lg">4</h1>
+                        </div>
+                        <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-item cursor-pointer transition-colors duration-300">
+                            <h3 class="font-bold text-gray-800 text-xl" data-lang-key="roadmap2026OnwardTitle">2026 Onward: Expansion</h3>
+                            <p class="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100 timeline-details hidden" data-lang-key="roadmap2026OnwardText">Governance system introduction, cross-chain expansion, RWA-based asset integration, and global market entry.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security Section -->
+        <section id="security" class="py-20 bg-white transition-colors duration-300">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h2 class="section-title" data-lang-key="securityTitle">Trust and Security</h2>
+                    <p class="section-subtitle" data-lang-key="securitySubtitle">
+                        Protecting user assets is Lumina's top priority. We implement a multi-layered security framework to proactively prevent potential threats and create a secure investment environment.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-gray-100 p-8 rounded-lg text-center transition-colors duration-300">
+                        <h3 class="text-xl font-bold mb-2" data-lang-key="securityAuditTitle">Regular Code Audits</h3>
+                        <p data-lang-key="securityAuditText">We regularly review smart contract vulnerabilities through reputable security audit firms and transparently disclose the results.</p>
+                    </div>
+                    <div class="bg-gray-100 p-8 rounded-lg text-center transition-colors duration-300">
+                        <h3 class="text-xl font-bold mb-2" data-lang-key="securityBugBountyTitle">Bug Bounty Program</h3>
+                        <p data-lang-key="securityBugBountyText">Collaborating with the global white-hat hacker community to proactively discover and reward potential security threats.</p>
+                    </div>
+                    <div class="bg-gray-100 p-8 rounded-lg text-center transition-colors duration-300">
+                        <h3 class="text-xl font-bold mb-2" data-lang-key="securityMultiSigTitle">Multi-Signature (Multi-sig)</h3>
+                        <p data-lang-key="securityMultiSigText">Applying multi-signature wallets to project's key assets and contract management to eliminate insider threats and single points of failure.</p>
+                    </div>
+                    <div class="bg-gray-100 p-8 rounded-lg text-center transition-colors duration-300">
+                        <h3 class="text-xl font-bold mb-2" data-lang-key="securityRiskMgmtTitle">Risk Management System</h3>
+                        <p data-lang-key="securityRiskMgmtText">Operating a dedicated team and contingency plans to respond to various external risks such as market volatility and regulatory changes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-[#2c3e50] text-white py-12 transition-colors duration-300">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-2xl font-bold mb-4" data-lang-key="footerLumina">Lumina</p>
+            <p class="mb-6" data-lang-key="footerMission">Shaping the future of DeFi together.</p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="hover:text-[#4A90E2] transition-colors duration-300">X (Twitter)</a>
+                <a href="#" class="hover:text-[#4A90E2] transition-colors duration-300">Telegram</a>
+                <a href="#" class="hover:text-[#4A90E2] transition-colors duration-300">Discord</a>
+                <a href="#" class="hover:text-[#4A90E2] transition-colors duration-300">Medium</a>
+            </div>
+            <p class="text-sm text-gray-400" data-lang-key="footerCopyright">&copy; 2025 Lumina Protocol. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="main.js"></script>
+</body>
+</html> 
