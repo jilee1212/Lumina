@@ -131,11 +131,17 @@ body {
     border: none;
     box-shadow: 0 4px 12px var(--shadow-color);
     transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px var(--shadow-color);
+    color: white;
 }
 
 [data-theme="dark"] .btn-primary {
@@ -144,6 +150,38 @@ body {
 
 [data-theme="dark"] .btn-primary:hover {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Download button specific styles */
+a[download] {
+    position: relative;
+    overflow: hidden;
+}
+
+a[download]::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+a[download]:hover::after {
+    transform: translateX(100%);
+}
+
+/* Language indicator styles */
+.btn-primary .text-sm {
+    opacity: 0.8;
+    font-weight: normal;
+}
+
+.btn-primary:hover .text-sm {
+    opacity: 1;
 }
 
 /* Timeline styles */
@@ -218,6 +256,14 @@ footer {
     [data-theme="dark"] .shadow-lg,
     [data-theme="dark"] .shadow-md {
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    .btn-primary {
+        min-width: 100%;
+    }
+    
+    .flex-col .btn-primary {
+        margin-bottom: 0.5rem;
     }
 }
 
