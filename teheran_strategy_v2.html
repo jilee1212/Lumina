@@ -5,8 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUMINA DEX 테헤란로 타겟 전략 v2.0 - $200K + Luca Casino</title>
     <link rel="stylesheet" href="lumina_styles.css">
+    <style>
+        #password-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        #password-box {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        #password-box h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        #password-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+        #password-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        #password-submit {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        #password-submit:hover {
+            transform: translateY(-2px);
+        }
+        #password-error {
+            color: #f44336;
+            margin-top: 10px;
+            display: none;
+        }
+        #main-content {
+            display: none;
+        }
+    </style>
 </head>
 <body>
+    <div id="password-overlay">
+        <div id="password-box">
+            <h2>🔒 비밀번호를 입력하세요</h2>
+            <input type="password" id="password-input" placeholder="비밀번호" />
+            <button id="password-submit">확인</button>
+            <div id="password-error">비밀번호가 올바르지 않습니다.</div>
+        </div>
+    </div>
+    <div id="main-content">
     <div class="container">
         <!-- HEADER -->
         <div class="header">
@@ -728,7 +800,37 @@
             <p>$200K로 로컬 생태계 지배 | 2025년 10월</p>
         </div>
     </div>
+    </div>
 
     <script src="lumina_script.js"></script>
+    <script>
+        const CORRECT_PASSWORD = 'lumina2025';
+
+        // Check if already authenticated
+        if (sessionStorage.getItem('lumina_auth') === 'true') {
+            document.getElementById('password-overlay').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+        }
+
+        document.getElementById('password-submit').addEventListener('click', checkPassword);
+        document.getElementById('password-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        function checkPassword() {
+            const input = document.getElementById('password-input').value;
+            if (input === CORRECT_PASSWORD) {
+                sessionStorage.setItem('lumina_auth', 'true');
+                document.getElementById('password-overlay').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+            } else {
+                document.getElementById('password-error').style.display = 'block';
+                document.getElementById('password-input').value = '';
+                document.getElementById('password-input').focus();
+            }
+        }
+    </script>
 </body>
 </html>
