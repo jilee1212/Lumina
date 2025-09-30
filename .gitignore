@@ -1,0 +1,17 @@
+# PDF files (documentation)
+*.pdf
+
+# Markdown source files (documentation)
+*.md
+
+# Archive folder
+archive/
+
+# IDE and system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Claude files
+.claude/
