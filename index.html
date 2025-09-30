@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUMINA DEX 전략 문서 - 로그인</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .login-container {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            color: #667eea;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        .password-form {
+            margin-top: 30px;
+        }
+        #password-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 18px;
+            margin-bottom: 20px;
+            transition: border-color 0.3s;
+        }
+        #password-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        #password-submit {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        #password-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        #password-error {
+            color: #f44336;
+            margin-top: 15px;
+            display: none;
+            font-size: 16px;
+        }
+        .info {
+            margin-top: 40px;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 10px;
+        }
+        .info h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        .info ul {
+            text-align: left;
+            list-style: none;
+            line-height: 2;
+            color: #555;
+        }
+        .info ul li:before {
+            content: "📘 ";
+            margin-right: 8px;
+        }
+        .version {
+            margin-top: 30px;
+            color: #999;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>🌟 LUMINA DEX</h1>
+        <div class="subtitle">
+            전략 문서 v2.0<br>
+            비밀번호를 입력하여 접속하세요
+        </div>
+
+        <div class="password-form">
+            <input type="password" id="password-input" placeholder="비밀번호를 입력하세요" autofocus />
+            <button id="password-submit">접속하기</button>
+            <div id="password-error">❌ 비밀번호가 올바르지 않습니다.</div>
+        </div>
+
+        <div class="info">
+            <h3>📚 포함된 문서</h3>
+            <ul>
+                <li>메인 전략 가이드 (전체 상세 전략)</li>
+                <li>최소 실행 전략 ($200K 생존 전략)</li>
+                <li>테헤란로 타겟 전략 (로컬 시장 공략)</li>
+            </ul>
+        </div>
+
+        <div class="version">
+            LUMINA DEX Strategy v2.0 | 2025년 10월
+        </div>
+    </div>
+
+    <script>
+        const CORRECT_PASSWORD = 'lumina2025';
+
+        // Check if already authenticated
+        if (sessionStorage.getItem('lumina_auth') === 'true') {
+            window.location.href = 'lumina_dex_final_strategy_v2.html';
+        }
+
+        document.getElementById('password-submit').addEventListener('click', checkPassword);
+        document.getElementById('password-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        function checkPassword() {
+            const input = document.getElementById('password-input').value;
+            if (input === CORRECT_PASSWORD) {
+                sessionStorage.setItem('lumina_auth', 'true');
+                window.location.href = 'lumina_dex_final_strategy_v2.html';
+            } else {
+                document.getElementById('password-error').style.display = 'block';
+                document.getElementById('password-input').value = '';
+                document.getElementById('password-input').focus();
+            }
+        }
+    </script>
+</body>
+</html>
