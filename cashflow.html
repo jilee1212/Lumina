@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>현금 흐름 가이드 | LuminaDex</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page-header">
+        <a href="index.html" class="back-button">← 대시보드로 돌아가기</a>
+        <h1>💰 현금 흐름 가이드</h1>
+        <p>6개월 성장 전략 및 LP 관리 시뮬레이션</p>
+    </div>
+
+    <div class="content-section">
+        <!-- 개요 -->
+        <div class="content-card">
+            <h2>📊 초기 상황</h2>
+            <h3>기본 설정</h3>
+            <ul>
+                <li><strong>초기 투자:</strong> $80,000</li>
+                <li><strong>Lumina 총량:</strong> 1,000,000,000개 (1B)</li>
+                <li><strong>판매된 물량:</strong> 0개 (전량 재단 보유)</li>
+                <li><strong>초기 가격:</strong> $1.00</li>
+            </ul>
+
+            <h3>초기 LP 구성</h3>
+            <pre>PancakeSwap: 40,000 Lumina + $40,000 BNB
+LuminaDex:   40,000 Lumina + $40,000 BNB
+───────────────────────────────────────────
+총 LP:       80,000 Lumina + $80,000 BNB</pre>
+        </div>
+
+        <!-- 런치패드 메커니즘 -->
+        <div class="content-card">
+            <h2>🎯 런치패드 메커니즘</h2>
+
+            <div class="alert alert-success">
+                <h3>✅ USD 기준 방식 (실제 적용)</h3>
+                <p><strong>유저 참여 흐름:</strong></p>
+                <ol>
+                    <li>유저가 BNB 보유</li>
+                    <li>LuminaDex에서 BNB → Lumina 스왑 (LP에서 Lumina 구매, 가격은 LP가 결정)</li>
+                    <li>획득한 Lumina로 런치패드 참여</li>
+                    <li>런치패드는 USD 가치 기준으로 토큰 할당</li>
+                </ol>
+            </div>
+
+            <h3>런치패드 설정 예시</h3>
+            <pre>프로젝트 목표: $100,000 모금
+토큰 판매: 10,000,000개
+가격: $0.01 per 토큰
+
+유저 참여:
+- $100 투자하고 싶으면
+- Lumina 현재 가격 조회 (LP 기준)
+- 필요한 Lumina 계산:
+  * Lumina @ $1.00 → 100 Lumina 필요
+  * Lumina @ $5.00 → 20 Lumina 필요
+- 10,000 토큰 획득 (USD 기준 동일)
+
+→ 공정함! ✅</pre>
+
+            <h4>핵심 장점</h4>
+            <ul>
+                <li>✅ 모든 유저에게 공정</li>
+                <li>✅ 프로젝트는 정확한 USD 금액 확보</li>
+                <li>✅ Lumina 가격 변동 위험 없음</li>
+                <li>✅ 가격이 오르면 LP 소진 감소</li>
+            </ul>
+        </div>
+
+        <!-- AMM 메커니즘 -->
+        <div class="content-card">
+            <h2>📐 AMM 가격 메커니즘</h2>
+
+            <h3>핵심 공식</h3>
+            <pre>x × y = k (상수)
+
+x = LP의 Lumina 수량
+y = LP의 BNB 수량
+k = 상수 (절대 변하지 않음)
+
+Lumina 가격 = y / x</pre>
+
+            <h3>슬리피지 vs 가격 상승</h3>
+
+            <h4>슬리피지 (Slippage)</h4>
+            <pre>거래 시작 가격 ~ 평균 구매가의 차이
+→ 유저가 느끼는 가격 변화
+→ "생각보다 비싸게 샀다"
+
+예시:
+시작 가격: $2.97
+평균 구매가: $4.26
+슬리피지: 43%</pre>
+
+            <h4>가격 상승 (Price Increase)</h4>
+            <pre>거래 전 LP 가격 ~ 거래 후 LP 가격
+→ LP의 새로운 가격
+→ "이제 Lumina가 더 비싸졌다"
+
+예시:
+거래 전: $2.97
+거래 후: $6.10
+가격 상승: 105%</pre>
+        </div>
+
+        <!-- 성장 전략 -->
+        <div class="content-card">
+            <h2>🎯 성장 전략</h2>
+
+            <h3>런치패드 규모 (점진적 증가)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>기간</th>
+                        <th>모금액/프로젝트</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Month 1-2</td><td>$50,000</td></tr>
+                    <tr><td>Month 2-3</td><td>$75,000</td></tr>
+                    <tr><td>Month 3-4</td><td>$100,000</td></tr>
+                    <tr><td>Month 4-5</td><td>$125,000</td></tr>
+                    <tr><td>Month 5-6</td><td>$150,000</td></tr>
+                    <tr><td>Month 6</td><td>$175,000 → $200,000</td></tr>
+                </tbody>
+            </table>
+
+            <h3>LP 확대 전략</h3>
+            <p><strong>런치패드마다 LP 추가 투자:</strong></p>
+            <ul>
+                <li>$50K 모금 → $20K LP 추가</li>
+                <li>$75K 모금 → $25K LP 추가</li>
+                <li>$100K 모금 → $30K LP 추가</li>
+                <li>$125K 모금 → $40K LP 추가</li>
+                <li>$150K 모금 → $50K LP 추가</li>
+                <li>$175K+ 모금 → $60K-70K LP 추가</li>
+            </ul>
+
+            <div class="alert alert-info">
+                <strong>이유:</strong>
+                <ul>
+                    <li>슬리피지 감소 (125% → 12%)</li>
+                    <li>가격 안정화</li>
+                    <li>유저 만족도 증가</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 6개월 시뮬레이션 -->
+        <div class="content-card">
+            <h2>🚀 6개월 상세 시뮬레이션</h2>
+
+            <h3>Month 1</h3>
+            <h4>런치패드 #1 ($50K 모금)</h4>
+            <pre>LP 시작: 40,000 Lumina @ $1.00
+목표 모금: $50,000 (USD)
+필요 Lumina: 22,222개
+
+슬리피지: 125%
+평균 구매가: $2.25
+
+거래 후: 17,778 Lumina @ $5.06 (+406%)
+
+수수료:
+- 런치패드: 1,111 Lumina (5%)
+- 거래: $125 (0.25%)
+
+LP 추가: +20,000 Lumina + $20,000 BNB
+최종: 38,889 Lumina @ $2.97</pre>
+
+            <h4>런치패드 #2 ($50K 모금)</h4>
+            <pre>LP 시작: 38,889 Lumina @ $2.97
+필요 Lumina: 11,740개 (가격 올라서 감소!)
+
+슬리피지: 43%
+평균 구매가: $4.26
+
+거래 후: 27,149 Lumina @ $6.10 (+105%)
+
+LP 추가: +20,000 Lumina + $20,000 BNB
+최종: 47,736 Lumina @ $3.96
+
+Month 1 추가 투자: $40,000</pre>
+
+            <div class="alert alert-success">
+                <strong>핵심 인사이트:</strong>
+                <ul>
+                    <li>런치패드 #1: 22,222 Lumina 필요</li>
+                    <li>런치패드 #2: 11,740 Lumina 필요</li>
+                    <li><strong>가격 오르면 필요 Lumina 감소!</strong> ✅</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 월별 진행 -->
+        <div class="content-card">
+            <h2>📅 월별 진행</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>규모</th>
+                        <th>평균 슬리피지</th>
+                        <th>최종 LP</th>
+                        <th>추가 투자</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Month 2</td>
+                        <td>$75K</td>
+                        <td>25%</td>
+                        <td>73,318 Lumina @ $5.44</td>
+                        <td>$50,000</td>
+                    </tr>
+                    <tr>
+                        <td>Month 3</td>
+                        <td>$100K</td>
+                        <td>22%</td>
+                        <td>106,003 Lumina @ $6.33</td>
+                        <td>$60,000</td>
+                    </tr>
+                    <tr>
+                        <td>Month 4</td>
+                        <td>$125K</td>
+                        <td>17%</td>
+                        <td>154,236 Lumina @ $6.59</td>
+                        <td>$80,000</td>
+                    </tr>
+                    <tr>
+                        <td>Month 5</td>
+                        <td>$150K</td>
+                        <td>13%</td>
+                        <td>216,166 Lumina @ $6.63</td>
+                        <td>$100,000</td>
+                    </tr>
+                    <tr>
+                        <td>Month 6</td>
+                        <td>$175K-$200K</td>
+                        <td>12%</td>
+                        <td>298,134 Lumina @ $6.57</td>
+                        <td>$130,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 최종 결과 -->
+        <div class="content-card">
+            <h2>📈 6개월 최종 결과</h2>
+
+            <h3>투자 내역</h3>
+            <pre>초기 LP:        $80,000
+추가 LP 투자:   $920,000
+───────────────────────────
+총 LP 투자:     $1,000,000</pre>
+
+            <h4>월별 추가 투자</h4>
+            <ul>
+                <li>Month 1: $40,000</li>
+                <li>Month 2: $50,000</li>
+                <li>Month 3: $60,000</li>
+                <li>Month 4: $80,000</li>
+                <li>Month 5: $100,000</li>
+                <li>Month 6: $130,000</li>
+            </ul>
+
+            <h3>LP 변화 분석</h3>
+            <pre>초기 LP:
+80,000 Lumina + $80,000 BNB
+가격: $1.00
+
+최종 LP:
+298,134 Lumina + $1,958,961 BNB
+가격: $6.57
+
+변화:
+- Lumina 증가: +218,134개 (+273%)
+- BNB 증가: +$1,878,961 (+2,349%)
+- 판매: 212,491 Lumina
+- 가격 상승: +557%</pre>
+
+            <div class="alert alert-success">
+                <strong>핵심:</strong>
+                <ul>
+                    <li>LP 확대로 Lumina 순증가!</li>
+                    <li>판매했지만 수수료+추가 투자로 더 증가</li>
+                    <li>BNB는 대폭 증가 (유저 유입)</li>
+                </ul>
+            </div>
+
+            <h3>수익 내역</h3>
+
+            <h4>A. 런치패드 수수료 (Lumina)</h4>
+            <pre>총 수수료: 10,625 Lumina (5%)
+현재 가치: $69,811 (@ $6.57)
+
+런치패드별 수수료:
+- Month 1-2: 1,698 Lumina
+- Month 3-4: 2,617 Lumina
+- Month 5-6: 6,310 Lumina
+
+→ 가격 올라도 USD 가치 비슷</pre>
+
+            <h4>B. 거래 수수료 (BNB)</h4>
+            <pre>총 수수료: $3,438 (0.25%)
+→ 즉시 현금 가능</pre>
+
+            <h4>C. LP 자산 가치</h4>
+            <pre>Lumina: 298,134개 × $6.57 = $1,958,961
+BNB: $1,958,961
+───────────────────────────────────
+총 LP 가치: $3,917,921</pre>
+        </div>
+
+        <!-- 최종 수익 분석 -->
+        <div class="content-card">
+            <h2>💰 최종 수익 분석</h2>
+
+            <pre>총 LP 투자:     $1,000,000
+총 자산 가치:   $3,991,170
+───────────────────────────
+순익:           $2,991,170
+ROI:            299.12%</pre>
+
+            <h3>비용 차감</h3>
+            <pre>순익:           $2,991,170
+운영 비용 6개월: -$108,000
+───────────────────────────
+최종 순익:      $2,883,170
+실질 ROI:       288.32%</pre>
+
+            <h3>현금화 전략 (6개월 후)</h3>
+            <h4>즉시 현금화 가능액</h4>
+            <pre>거래 수수료 (BNB):          $3,438
+Lumina 수수료 50% 판매:     $34,906
+LP 10% 인출:               $391,792
+───────────────────────────────────
+총 현금화 가능:             $430,135</pre>
+
+            <h4>비용 충당</h4>
+            <pre>총 현금화:      $430,135
+6개월 운영비:   -$108,000
+───────────────────────────
+잔여 현금:      $322,135</pre>
+
+            <h4>사용 계획</h4>
+            <ul>
+                <li>운영비 충당: $108,000 ✅</li>
+                <li>마케팅 확대: $150,000</li>
+                <li>추가 LP 투자: $100,000</li>
+                <li>비상 자금: $72,135</li>
+            </ul>
+        </div>
+
+        <!-- 핵심 지표 요약 -->
+        <div class="content-card">
+            <h2>📊 핵심 지표 요약</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>지표</th>
+                        <th>수치</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>런치패드 수</td><td>12개</td></tr>
+                    <tr><td>총 모금액</td><td>$1,375,000</td></tr>
+                    <tr><td>평균 모금액</td><td>$114,583</td></tr>
+                    <tr><td>Lumina 판매</td><td>212,491개</td></tr>
+                    <tr><td>Lumina 순증가</td><td>+218,134개</td></tr>
+                    <tr><td>가격 상승</td><td>557% ($1.00 → $6.57)</td></tr>
+                    <tr><td>총 투자</td><td>$1,000,000</td></tr>
+                    <tr><td>총 자산</td><td>$3,991,170</td></tr>
+                    <tr><td>순익</td><td>$2,883,170</td></tr>
+                    <tr><td>ROI</td><td>288%</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 핵심 인사이트 -->
+        <div class="content-card">
+            <h2>🎯 핵심 인사이트</h2>
+
+            <h3>1. USD 기준의 장점</h3>
+
+            <h4>공정성</h4>
+            <pre>유저 A (초기, Lumina $1):
+- 투자: $1,000
+- 필요 Lumina: 1,000개
+- 획득 토큰: 10,000개
+
+유저 B (후기, Lumina $6):
+- 투자: $1,000
+- 필요 Lumina: 167개
+- 획득 토큰: 10,000개
+
+→ 모두 공정! ✅</pre>
+
+            <h4>LP 보호</h4>
+            <pre>고정 Lumina 방식:
+- 매번 100,000 Lumina 소진
+- 12개 후 LP 고갈
+
+USD 기준 방식:
+- 초기 22,222 Lumina 소진
+- 후기 25,280 Lumina 소진
+- 가격 오르면 소진 감소
+- LP 안전 ✅</pre>
+
+            <h3>2. 슬리피지 개선 효과</h3>
+            <pre>초기 (LP 작음):
+런치패드 #1: 125% 슬리피지
+
+중기 (LP 확대):
+런치패드 #4: 25% 슬리피지
+
+후기 (LP 충분):
+런치패드 #12: 12% 슬리피지
+
+→ 10배 개선! ✅</pre>
+
+            <h3>3. LP 순증가 메커니즘</h3>
+            <pre>소진: -212,491 Lumina (판매)
+수수료 재투입: +10,625 Lumina
+추가 투자: +420,000 Lumina
+───────────────────────────
+순증가: +218,134 Lumina
+
+→ 지속 가능한 성장!</pre>
+        </div>
+
+        <!-- 주의사항 -->
+        <div class="content-card">
+            <h2>⚠️ 주의사항 및 리스크</h2>
+
+            <h3>1. 초기 슬리피지 높음</h3>
+            <div class="alert alert-warning">
+                <p><strong>문제:</strong></p>
+                <ul>
+                    <li>첫 런치패드: 125% 슬리피지</li>
+                    <li>유저 반발 가능</li>
+                </ul>
+                <p><strong>해결책:</strong></p>
+                <ol>
+                    <li>소규모 런치패드 ($50K)</li>
+                    <li>슬리피지 사전 고지</li>
+                    <li>"초기 참여 보너스" 제공</li>
+                    <li>빠른 LP 확대 ($20K 추가)</li>
+                </ol>
+            </div>
+
+            <h3>2. LP 자금 조달</h3>
+            <p><strong>필요 자금: 6개월 총 $920,000</strong></p>
+            <p><strong>조달 방법:</strong></p>
+            <ul>
+                <li>지분 투자: $500,000 (50%)</li>
+                <li>런치패드 수익 재투자: $300,000</li>
+                <li>팀 자금: $120,000</li>
+            </ul>
+
+            <h3>3. 가격 변동성</h3>
+            <div class="alert alert-danger">
+                <p><strong>위험:</strong></p>
+                <ul>
+                    <li>급격한 가격 상승/하락</li>
+                    <li>투기 세력 유입</li>
+                </ul>
+                <p><strong>대응:</strong></p>
+                <ol>
+                    <li>LP 충분히 확보 (변동성 억제)</li>
+                    <li>스테이킹 프로그램 (물량 락업)</li>
+                    <li>단계적 LP 확대 (충격 흡수)</li>
+                    <li>커뮤니티 투명 소통</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 LuminaDex. All rights reserved.</p>
+        <p class="footer-note">이 문서는 내부 전략 자료입니다.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

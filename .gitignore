@@ -7,6 +7,9 @@
 # Archive folder
 archive/
 
+# Other folders
+결제서비스/
+
 # IDE and system files
 .vscode/
 .idea/

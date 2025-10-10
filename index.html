@@ -3,153 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUMINA DEX 전략 문서 - 로그인</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        .login-container {
-            background: white;
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            text-align: center;
-            max-width: 500px;
-            width: 100%;
-        }
-        h1 {
-            color: #667eea;
-            font-size: 2.2em;
-            margin-bottom: 15px;
-        }
-        .subtitle {
-            color: #666;
-            font-size: 1.1em;
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-        .password-form {
-            margin-top: 30px;
-        }
-        #password-input {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            font-size: 18px;
-            margin-bottom: 20px;
-            transition: border-color 0.3s;
-        }
-        #password-input:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-        #password-submit {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        #password-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
-        }
-        #password-error {
-            color: #f44336;
-            margin-top: 15px;
-            display: none;
-            font-size: 16px;
-        }
-        .info {
-            margin-top: 40px;
-            padding: 20px;
-            background: #f5f5f5;
-            border-radius: 10px;
-        }
-        .info h3 {
-            color: #667eea;
-            margin-bottom: 15px;
-            font-size: 1.3em;
-        }
-        .info ul {
-            text-align: left;
-            list-style: none;
-            line-height: 2;
-            color: #555;
-        }
-        .info ul li:before {
-            content: "📘 ";
-            margin-right: 8px;
-        }
-        .version {
-            margin-top: 30px;
-            color: #999;
-            font-size: 0.9em;
-        }
-    </style>
+    <title>LuminaDex 전략 대시보드</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="login-container">
-        <h1>🌟 LUMINA DEX</h1>
-        <div class="subtitle">
-            전략 문서 v2.0<br>
-            비밀번호를 입력하여 접속하세요
-        </div>
-
-        <div class="password-form">
-            <input type="password" id="password-input" placeholder="비밀번호를 입력하세요" autofocus />
-            <button id="password-submit">접속하기</button>
-            <div id="password-error">❌ 비밀번호가 올바르지 않습니다.</div>
-        </div>
-
-        <div class="version">
-            LUMINA DEX Strategy v2.0 | 2025년 10월
+    <div class="password-overlay" id="passwordOverlay">
+        <div class="password-container">
+            <h1>🌟 LuminaDex</h1>
+            <p class="subtitle">전략 대시보드 v3.0</p>
+            <div class="password-form">
+                <input type="password" id="passwordInput" placeholder="비밀번호 입력" autofocus>
+                <button id="passwordSubmit">접속</button>
+                <div id="passwordError" class="error-message">비밀번호가 올바르지 않습니다</div>
+            </div>
+            <p class="version">2025년 10월 11일 업데이트</p>
         </div>
     </div>
 
-    <script>
-        const CORRECT_PASSWORD = 'lumina2025';
+    <div class="main-container" id="mainContent">
+        <header class="header">
+            <div class="header-content">
+                <h1>🚀 LuminaDex 전략 대시보드</h1>
+                <p class="header-subtitle">통합 전략 관리 시스템</p>
+            </div>
+            <button class="logout-btn" id="logoutBtn">로그아웃</button>
+        </header>
 
-        // Check if already authenticated
-        if (sessionStorage.getItem('lumina_auth') === 'true') {
-            window.location.href = 'lumina_dex_final_strategy_v2.html';
-        }
+        <main class="dashboard">
+            <div class="dashboard-grid">
+                <!-- 현금 흐름 가이드 -->
+                <a href="cashflow.html" class="dashboard-card card-cashflow">
+                    <div class="card-icon">💰</div>
+                    <h2>현금 흐름 가이드</h2>
+                    <p>6개월 성장 전략 및 LP 관리</p>
+                    <div class="card-stats">
+                        <div class="stat">
+                            <span class="stat-label">목표 ROI</span>
+                            <span class="stat-value">288%</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">런치패드</span>
+                            <span class="stat-value">12개</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="badge">필수</span>
+                        <span class="arrow">→</span>
+                    </div>
+                </a>
 
-        document.getElementById('password-submit').addEventListener('click', checkPassword);
-        document.getElementById('password-input').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                checkPassword();
-            }
-        });
+                <!-- 완벽 시뮬레이션 -->
+                <a href="simulation.html" class="dashboard-card card-simulation">
+                    <div class="card-icon">📊</div>
+                    <h2>완벽 시뮬레이션</h2>
+                    <p>$800 목표가 최적화 전략</p>
+                    <div class="card-stats">
+                        <div class="stat">
+                            <span class="stat-label">목표가</span>
+                            <span class="stat-value">$800</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">슬리피지</span>
+                            <span class="stat-value">2.5%</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="badge">중요</span>
+                        <span class="arrow">→</span>
+                    </div>
+                </a>
 
-        function checkPassword() {
-            const input = document.getElementById('password-input').value;
-            if (input === CORRECT_PASSWORD) {
-                sessionStorage.setItem('lumina_auth', 'true');
-                window.location.href = 'lumina_dex_final_strategy_v2.html';
-            } else {
-                document.getElementById('password-error').style.display = 'block';
-                document.getElementById('password-input').value = '';
-                document.getElementById('password-input').focus();
-            }
-        }
-    </script>
+                <!-- 배포 체크리스트 -->
+                <a href="deployment.html" class="dashboard-card card-deployment">
+                    <div class="card-icon">✅</div>
+                    <h2>배포 체크리스트</h2>
+                    <p>BSC & ETH 메인넷 배포 정보</p>
+                    <div class="card-stats">
+                        <div class="stat">
+                            <span class="stat-label">BSC</span>
+                            <span class="stat-value">완료</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">ETH</span>
+                            <span class="stat-value">대기</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="badge">기술</span>
+                        <span class="arrow">→</span>
+                    </div>
+                </a>
+
+                <!-- 성장 전략 -->
+                <a href="strategy.html" class="dashboard-card card-strategy">
+                    <div class="card-icon">🎯</div>
+                    <h2>2단계 성장 전략</h2>
+                    <p>B2B → B2C 확장 로드맵</p>
+                    <div class="card-stats">
+                        <div class="stat">
+                            <span class="stat-label">Stage 1</span>
+                            <span class="stat-value">12개월</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Pancake</span>
+                            <span class="stat-value">60%→40%</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="badge">전략</span>
+                        <span class="arrow">→</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 빠른 요약 섹션 -->
+            <section class="quick-summary">
+                <h2>📌 핵심 요약</h2>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h3>💵 초기 투자</h3>
+                        <p class="summary-value">$80,000</p>
+                        <p class="summary-detail">Lumina 80,000개 + $80,000 BNB</p>
+                    </div>
+                    <div class="summary-item">
+                        <h3>🎯 6개월 목표</h3>
+                        <p class="summary-value">$3.9M</p>
+                        <p class="summary-detail">총 자산 가치 (LP + 수수료)</p>
+                    </div>
+                    <div class="summary-item">
+                        <h3>📈 예상 ROI</h3>
+                        <p class="summary-value">288%</p>
+                        <p class="summary-detail">6개월 운영 후 실질 수익률</p>
+                    </div>
+                    <div class="summary-item">
+                        <h3>🔄 런치패드</h3>
+                        <p class="summary-value">12개</p>
+                        <p class="summary-detail">$50K → $200K 점진 확대</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 타임라인 -->
+            <section class="timeline-section">
+                <h2>📅 실행 타임라인</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">1</div>
+                        <div class="timeline-content">
+                            <h3>Month 1-3: 성장기</h3>
+                            <p>$50K 런치패드 2개 → 가격 $1 → $300</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">2</div>
+                        <div class="timeline-content">
+                            <h3>Month 4-6: 안정화</h3>
+                            <p>$75K-$150K 런치패드 → 가격 $300 → $800</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">3</div>
+                        <div class="timeline-content">
+                            <h3>Month 7-12+: 안정기</h3>
+                            <p>$800 가격 유지 → 지속 가능 운영</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 주요 지표 -->
+            <section class="metrics-section">
+                <h2>📊 핵심 지표 (KPI)</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon">💎</div>
+                        <div class="metric-info">
+                            <h4>Lumina 가격</h4>
+                            <p class="metric-value">$1 → $6.57</p>
+                            <p class="metric-change positive">+557%</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">💧</div>
+                        <div class="metric-info">
+                            <h4>LP 자산</h4>
+                            <p class="metric-value">$3.9M</p>
+                            <p class="metric-change positive">+3,818%</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">📉</div>
+                        <div class="metric-info">
+                            <h4>슬리피지</h4>
+                            <p class="metric-value">2.5%</p>
+                            <p class="metric-change positive">업계 최상급</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">⏱️</div>
+                        <div class="metric-info">
+                            <h4>LP 수명</h4>
+                            <p class="metric-value">32+</p>
+                            <p class="metric-change positive">런치패드 가능</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 LuminaDex. All rights reserved.</p>
+            <p class="footer-note">이 문서는 내부 전략 자료입니다.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

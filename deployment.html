@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배포 체크리스트 | LuminaDex</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page-header">
+        <a href="index.html" class="back-button">← 대시보드로 돌아가기</a>
+        <h1>✅ LuminaDex 라이브넷 배포 체크리스트</h1>
+        <p>BSC & ETH Mainnet 배포 정보 및 진행 현황</p>
+    </div>
+
+    <div class="content-section">
+        <!-- 배포 현황 요약 -->
+        <div class="content-card">
+            <h2>📋 배포 현황 요약</h2>
+
+            <h3>✅ 완료된 배포</h3>
+            <ul>
+                <li><strong>BSC Mainnet:</strong> 2025년 10월 1일 완료</li>
+                <li><strong>ETH Mainnet:</strong> 2025년 10월 4일 예정 → 실제 배포 여부 확인 필요</li>
+            </ul>
+
+            <h3>⏳ 진행 중</h3>
+            <ul>
+                <li>Voting 기능 버그 수정</li>
+                <li>Admin 문서 작성</li>
+            </ul>
+
+            <div class="alert alert-info">
+                <strong>최종 업데이트:</strong> 2025년 10월 11일<br>
+                <strong>기준일:</strong> 2025년 9월 25일 이후<br>
+                <strong>네트워크:</strong> BSC & ETH Mainnet (라이브넷)
+            </div>
+        </div>
+
+        <!-- 지갑 주소 정보 -->
+        <div class="content-card">
+            <h2>🏦 지갑 주소 정보</h2>
+
+            <h3>메인 배포 지갑 (운영)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>구분</th>
+                        <th>주소</th>
+                        <th>용도</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Dev Fund</strong></td>
+                        <td><code>0xCa73be9EE66B648d303E945467ac0f070fC51c52</code></td>
+                        <td>개발 자금 관리</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fee To Setter</strong></td>
+                        <td><code>0xA49f76024B6e6046ee1435a04E476C0769Ddcab7</code></td>
+                        <td>수수료 설정 관리</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fee Receiver</strong></td>
+                        <td><code>0xeD4fA008cC42503161365e847DAe0e03A3AD2270</code></td>
+                        <td>수수료 수령 지갑</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ownership Wallet</strong></td>
+                        <td><code>0x6d3F4735B2bbaE6da316609345c7a4d745B6ba2E</code></td>
+                        <td>컨트랙트 소유권</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Admin Wallet</strong></td>
+                        <td><code>0xE287d5946fA217F7E509f3a970A448F31b22Ed01</code></td>
+                        <td>Admin 기능 관리</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="alert alert-warning">
+                <strong>⚠️ 중요:</strong> 향후 Gnosis Safe 2/3 멀티시그로 전환 계획
+            </div>
+
+            <h3>테스터 지갑</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>구분</th>
+                        <th>주소</th>
+                        <th>역할</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Tester 1 (Admin)</strong></td>
+                        <td><code>0x6405D3eD3732Fd523946173e6674a306519D1aca</code></td>
+                        <td>Flexible Staking Admin</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tester 2</strong></td>
+                        <td><code>0x8fDa8E7E7347806aF8E49e32189CAf69CfCA301a</code></td>
+                        <td>일반 테스터</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- BSC Mainnet 배포 정보 -->
+        <div class="content-card">
+            <h2>🔗 BSC Mainnet 배포 정보</h2>
+
+            <h3>배포 일정</h3>
+            <ul>
+                <li><strong>배포 시작:</strong> 2025년 9월 30일 15:00 (KST)</li>
+                <li><strong>배포 완료:</strong> 2025년 10월 1일 19:46 (KST)</li>
+                <li><strong>웹사이트 라이브:</strong> 배포 완료 후</li>
+            </ul>
+
+            <h3>BSC Mainnet 컨트랙트 주소</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>컨트랙트</th>
+                        <th>트랜잭션 해시</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Factory</strong></td>
+                        <td><code>0x5ba366b4e3eed36230d186f22c0792135a9327e9c75487257ff4addaf4c9fde4</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Router</strong></td>
+                        <td><code>0xe3e4d91086abec9c0e26f245da0e235e4365decc0938bb9eec64f12a1ddf40a6</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>LUMINA Token</strong></td>
+                        <td><code>0x889FA266F540f18Fc88B62E5D8cb231ccB2c163A</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>LUMINA Deployment TX</strong></td>
+                        <td><code>0x66ba6c37a150da23a519bb3f090c1e2e94bfdb4fde759572be2edcf083566948</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>BNB-LUMINA LP</strong></td>
+                        <td><code>0x4426e65ccd817c69a8b06e53c3162139790cf7daf41397f2f1fc7a8316942092</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>LUMINA-BUSD LP</strong></td>
+                        <td><code>0xe8f33fd945241955d80d471895374d6ea1b8a3927f7dcc23aa65c79cb36b784f</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>BNB-BUSD LP</strong></td>
+                        <td><code>0x8e675aadbaf53b92645d11a569c13129f073f809076897fa4eb943056861cdbe</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>MasterChef</strong></td>
+                        <td><code>0x3e13f80d959b833e2f689a56359d509842d5788cf690394d0753177e4c055f02</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>SmartChef</strong></td>
+                        <td><code>0xcb8fcfdf5e4f3444b8387a842edb74784dc2d8e9bc08c933ea94f25614997f2a</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pool Address</strong></td>
+                        <td><code>0x5e7ad76d144fc1ff057f652171cd069858295dbfbd105c2cf67ce99ae9dfc105</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>BSC 체크리스트</h3>
+            <ul class="checklist">
+                <li>BSCScan 검증 - 모든 컨트랙트 Verify 완료 확인</li>
+                <li>컨트랙트 소스코드 공개 확인</li>
+                <li>LUMINA Token 확인: https://bscscan.com/address/0x889FA266F540f18Fc88B62E5D8cb231ccB2c163A</li>
+                <li>Owner 주소 확인: 0x6d3F4735B2bbaE6da316609345c7a4d745B6ba2E</li>
+                <li>소유권 이전 가능 여부 확인</li>
+                <li>Staking Pool 자금 105,120 LUMINA 입금 확인</li>
+                <li>자금 입금 트랜잭션 해시 확인</li>
+            </ul>
+        </div>
+
+        <!-- ETH Mainnet 배포 정보 -->
+        <div class="content-card">
+            <h2>🔗 ETH Mainnet 배포 정보</h2>
+
+            <h3>배포 일정</h3>
+            <ul>
+                <li><strong>예정일:</strong> 2025년 10월 4일 (금요일)</li>
+                <li><strong>배포 상태:</strong> 확인 필요</li>
+                <li><strong>로딩 시간 이슈:</strong> BSC 배포 중 발생한 긴 로딩 시간 개선 필요</li>
+            </ul>
+
+            <h3>ETH Mainnet 컨트랙트 주소</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>컨트랙트</th>
+                        <th>트랜잭션 해시</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Factory</strong></td>
+                        <td><code>0x3d54cd92646aeecb4107d9e3b3bee1f8bf8055d32d2338d8012530eceee3ce18</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Router</strong></td>
+                        <td><code>0xa279f4ced8a387b82d517020904f57734bd735af30642086fa99cd33fcd8a77b</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>LUMINA Token</strong></td>
+                        <td><code>0x6428ca3826f67d71B6cAeDeFba58d6f7ad1eeF51</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>LUMINA Deployment TX</strong></td>
+                        <td><code>0x11061fa26f7323e4e8ae709af64efcdc8e6a8f6070580c9c4ff2029af9aa2275</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>USDT</strong></td>
+                        <td><code>0xdAC17F958D2ee523a2206206994597C13D831ec7</code> (decimal: 6)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>ETH 체크리스트</h3>
+            <ul class="checklist">
+                <li>BSC 배포 리뷰 완료</li>
+                <li>발생한 이슈 정리</li>
+                <li>로딩 시간 문제 해결 방안 수립</li>
+                <li>개선사항 ETH 배포에 반영</li>
+                <li>동일 파라미터 준비</li>
+                <li>Etherscan 검증 완료</li>
+                <li>LUMINA Token 확인: https://etherscan.io/address/0x6428ca3826f67d71B6cAeDeFba58d6f7ad1eeF51</li>
+            </ul>
+        </div>
+
+        <!-- Staking 파라미터 -->
+        <div class="content-card">
+            <h2>⚙️ Staking 파라미터 설정</h2>
+
+            <h3>Flexible Staking (고정 값)</h3>
+            <pre>rewardPerBlock    : 10000000000000000      // 0.01 LUMINA per block
+bonusEndBlock     : 78000000               // ~10개월 기간
+poolLimitPerUser  : 0                      // 무제한
+admin             : 0x6405D3eD3732Fd523946173e6674a306519D1aca
+depositFee        : 0                      // 예치 수수료 없음
+LUMINAPerBlock    : 10000000000000000      // rewardPerBlock과 동일</pre>
+
+            <p><strong>필요 자금:</strong> 약 105,120 LUMINA (10개월 리워드)</p>
+
+            <h3>Lock Staking (Admin 패널 조정 가능)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>기간</th>
+                        <th>APR</th>
+                        <th>조정 가능 여부</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1개월</td><td>24%</td><td>✅ Yes (Admin Panel)</td></tr>
+                    <tr><td>3개월</td><td>36%</td><td>✅ Yes (Admin Panel)</td></tr>
+                    <tr><td>6개월</td><td>48%</td><td>✅ Yes (Admin Panel)</td></tr>
+                </tbody>
+            </table>
+
+            <h3>APR 조정 제한사항</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>기능</th>
+                        <th>APR 조정</th>
+                        <th>비고</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Flexible Staking</td><td>❌ 불가</td><td>고정값 (재배포 필요)</td></tr>
+                    <tr><td>Lock Staking</td><td>✅ 가능</td><td>Admin Panel에서 조정</td></tr>
+                    <tr><td>Farming</td><td>❌ 불가</td><td>고정값 (재배포 필요)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 테스팅 체크리스트 -->
+        <div class="content-card">
+            <h2>🧪 테스팅 체크리스트</h2>
+
+            <h3>기능 테스트 - BSC Mainnet</h3>
+
+            <h4>Swap 기능</h4>
+            <ul class="checklist">
+                <li>BNB ↔ LUMINA 스왑 테스트</li>
+                <li>슬리피지 설정 테스트</li>
+                <li>트랜잭션 해시 수집</li>
+            </ul>
+
+            <h4>Liquidity 기능</h4>
+            <ul class="checklist">
+                <li>유동성 추가 테스트</li>
+                <li>LP 토큰 발행 확인</li>
+                <li>유동성 제거 테스트</li>
+            </ul>
+
+            <h4>Farming 기능</h4>
+            <ul class="checklist">
+                <li>LP 토큰 스테이킹 테스트</li>
+                <li>보상 계산 확인</li>
+                <li>보상 수령 테스트</li>
+            </ul>
+
+            <h4>Staking 기능</h4>
+            <ul class="checklist">
+                <li>Flexible Staking 테스트</li>
+                <li>Lock Staking (1M/3M/6M) 테스트</li>
+                <li>보상 Claim 테스트</li>
+                <li>Unstake 기능 테스트</li>
+            </ul>
+
+            <h4>Launchpad 기능</h4>
+            <ul class="checklist">
+                <li>프로젝트 생성 테스트</li>
+                <li>참여 테스트</li>
+                <li>Claim 테스트</li>
+            </ul>
+
+            <h4>Voting 기능</h4>
+            <ul class="checklist">
+                <li>⚠️ 버그 수정 확인 필요</li>
+                <li>제안 생성 테스트</li>
+                <li>투표 기능 테스트</li>
+            </ul>
+        </div>
+
+        <!-- 보안 체크리스트 -->
+        <div class="content-card">
+            <h2>🔒 보안 체크리스트</h2>
+
+            <h3>컨트랙트 보안</h3>
+            <ul class="checklist">
+                <li>Owner 주소 정확성 확인</li>
+                <li>멀티시그 전환 계획 수립</li>
+                <li>소유권 이전 절차 문서화</li>
+                <li>Admin 권한 범위 확인</li>
+                <li>Fee Setter 권한 제한 확인</li>
+                <li>불필요한 권한 제거 확인</li>
+                <li>Pause 기능 테스트</li>
+                <li>긴급 출금 기능 확인</li>
+            </ul>
+
+            <h3>자금 보안</h3>
+            <ul class="checklist">
+                <li>105,120 LUMINA 안전 보관 확인</li>
+                <li>멀티시그 지갑 설정 (향후)</li>
+                <li>백업 키 관리 절차</li>
+                <li>초기 유동성 공급 계획</li>
+                <li>LP 토큰 락업 계획</li>
+            </ul>
+        </div>
+
+        <!-- 알려진 이슈 -->
+        <div class="content-card">
+            <h2>⚠️ 알려진 이슈 및 주의사항</h2>
+
+            <h3>파라미터 혼동 주의</h3>
+            <div class="alert alert-warning">
+                <p><strong>Flexible Staking Admin 주소:</strong></p>
+                <code>0x6405D3eD3732Fd523946173e6674a306519D1aca</code> (Tester 1 = Admin)
+
+                <p><strong>DEX Ownership Wallet:</strong></p>
+                <code>0x6d3F4735B2bbaE6da316609345c7a4d745B6ba2E</code>
+
+                <p style="margin-top: 15px;"><strong>⚠️ 중요: 이 두 주소는 서로 다름!</strong></p>
+                <ul>
+                    <li>Staking 컨트랙트의 admin ≠ DEX의 Owner</li>
+                    <li>질문 시 어떤 컨트랙트에 대해 묻는지 명확히 할 것</li>
+                </ul>
+            </div>
+
+            <h3>배포 중 발생한 이슈</h3>
+            <ul>
+                <li><strong>로딩 시간:</strong> BSC 배포 중 예상보다 긴 로딩 시간 발생 → 원인 분석 필요</li>
+                <li><strong>Voting 버그:</strong> 9월 30일 발견, 수정 진행 중 → 실제 수정 완료 확인 필요</li>
+            </ul>
+
+            <h3>권한 관련 주의사항</h3>
+            <ul>
+                <li><strong>Fee Setter 권한:</strong> 수수료율뿐만 아니라 리워드도 조정 가능</li>
+                <li><strong>Ownership 권한:</strong> Pause 가능, Upgrade는 추가 시간 필요</li>
+                <li><strong>지갑 변경:</strong> 배포 후 주소 변경 가능 (확인됨)</li>
+            </ul>
+        </div>
+
+        <!-- 다음 액션 아이템 -->
+        <div class="content-card">
+            <h2>🎯 다음 액션 아이템</h2>
+
+            <h3>즉시 조치 필요</h3>
+            <ol>
+                <li><strong>BSC 배포 정보 수집</strong>
+                    <ul class="checklist">
+                        <li>모든 컨트랙트 주소 받기</li>
+                        <li>BSCScan 링크 확인</li>
+                        <li>Verify 상태 확인</li>
+                    </ul>
+                </li>
+                <li><strong>ETH 배포 상태 확인</strong>
+                    <ul class="checklist">
+                        <li>10월 4일 배포 완료 여부 확인</li>
+                        <li>배포 시 이슈 발생 여부 확인</li>
+                    </ul>
+                </li>
+                <li><strong>문서 요청</strong>
+                    <ul class="checklist">
+                        <li>Admin 가이드 수령</li>
+                        <li>비상 절차 문서 수령</li>
+                        <li>최종 배포 리포트 수령</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>단기 (1주일 내)</h3>
+            <ol>
+                <li><strong>보안 강화</strong>
+                    <ul class="checklist">
+                        <li>Gnosis Safe 멀티시그 설정</li>
+                        <li>주요 지갑 주소 마이그레이션</li>
+                        <li>백업 키 안전 보관</li>
+                    </ul>
+                </li>
+                <li><strong>모니터링 시스템 구축</strong>
+                    <ul class="checklist">
+                        <li>대시보드 설정</li>
+                        <li>알림 시스템 구축</li>
+                        <li>정기 리포트 자동화</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>중기 (1개월 내)</h3>
+            <ol>
+                <li><strong>외부 감사</strong>
+                    <ul class="checklist">
+                        <li>스마트 컨트랙트 감사 일정 수립</li>
+                        <li>감사 업체 선정</li>
+                        <li>감사 진행</li>
+                    </ul>
+                </li>
+                <li><strong>커뮤니티 구축</strong>
+                    <ul class="checklist">
+                        <li>공식 채널 오픈 (Telegram, Discord, Twitter)</li>
+                        <li>마케팅 캠페인 시작</li>
+                        <li>파트너십 체결</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 LuminaDex. All rights reserved.</p>
+        <p class="footer-note">이 문서는 내부 전략 자료입니다.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
