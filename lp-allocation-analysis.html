@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LP 배분 전략 분석 | LuminaDex</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page-header">
+        <a href="index.html" class="back-button">← 대시보드로 돌아가기</a>
+        <h1>🎯 LP 배분 전략 분석</h1>
+        <p>초기 자본 $80K 최적 배분 전략 시뮬레이션</p>
+    </div>
+
+    <div class="content-section">
+        <!-- 개요 -->
+        <div class="content-card">
+            <h2>📊 분석 개요</h2>
+
+            <h3>초기 상황</h3>
+            <ul>
+                <li><strong>초기 자본:</strong> 80,000 Lumina + $80,000 BNB</li>
+                <li><strong>Lumina 총 발행량:</strong> 1,000,000,000 (1B)</li>
+                <li><strong>판매된 물량:</strong> 0개 (전량 팀 보유)</li>
+                <li><strong>초기 가격:</strong> $1.00/Lumina</li>
+            </ul>
+
+            <h3>비교 전략 (3가지)</h3>
+            <div class="alert alert-info">
+                <p><strong>전략 1: LuminaDex Only</strong></p>
+                <ul>
+                    <li>LuminaDex: 40,000 Lumina + $40,000 BNB</li>
+                    <li>예비: 40,000 Lumina + $40,000 BNB</li>
+                </ul>
+            </div>
+
+            <div class="alert alert-success">
+                <p><strong>전략 2: 5:5 완전 분산 (추천)</strong></p>
+                <ul>
+                    <li>LuminaDex: 40,000 Lumina + $40,000 BNB</li>
+                    <li>PancakeSwap: 40,000 Lumina + $40,000 BNB</li>
+                    <li>예비: 0</li>
+                </ul>
+            </div>
+
+            <div class="alert alert-warning">
+                <p><strong>전략 3: 6:4 분산 (PancakeSwap 중심)</strong></p>
+                <ul>
+                    <li>PancakeSwap: 48,000 Lumina + $48,000 BNB</li>
+                    <li>LuminaDex: 32,000 Lumina + $32,000 BNB</li>
+                    <li>예비: 0</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- AMM 메커니즘 -->
+        <div class="content-card">
+            <h2>🔬 AMM 메커니즘 및 차익거래</h2>
+
+            <h3>핵심 공식</h3>
+            <pre>x × y = k (상수)
+
+x = LP의 Lumina 수량
+y = LP의 BNB 수량
+k = 불변 상수
+
+가격 = y / x
+슬리피지 ∝ 1 / √(LP 크기)</pre>
+
+            <h3>차익거래 모델</h3>
+            <p><strong>가정:</strong> 두 DEX 간 1-2% 가격 괴리까지 허용</p>
+
+            <pre>시나리오:
+1. 런치패드가 LuminaDex에서만 진행
+2. LuminaDex 가격 급등
+3. 차익거래자들이 PancakeSwap에서 구매 → LuminaDex 판매
+4. 수분 내 두 풀 가격 균형 (1-2% 차이)
+
+결과:
+→ 두 개의 LP가 하나의 큰 LP처럼 작동
+→ 슬리피지는 "총 LP 크기"에 의존</pre>
+
+            <div class="alert alert-success">
+                <p><strong>핵심 인사이트:</strong></p>
+                <ul>
+                    <li>총 LP 크기가 같으면 슬리피지 동일</li>
+                    <li>전략 1, 2, 3 모두 총 80K + 80K = 동일한 슬리피지</li>
+                    <li>차이는 "수수료 수익"과 "리스크 분산"</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 시뮬레이션 결과 -->
+        <div class="content-card">
+            <h2>🚀 Launchpad #1 시뮬레이션 ($50K 모금)</h2>
+
+            <h3>전략 1: LuminaDex Only</h3>
+            <pre>초기 LP:
+LuminaDex: 40,000 Lumina + $40,000 BNB @ $1.00
+k = 1,600,000,000
+
+[런치패드 $50,000]
+필요 Lumina: 22,222.22개
+수수료 후 유저: 21,111.11 Lumina
+
+거래 후:
+LuminaDex: 17,777.78 Lumina + $89,875 BNB @ $5.05
+예비: 40,000 Lumina + $40,000 BNB (그대로)
+
+슬리피지: 136.8%
+거래 수수료: $125
+런치패드 수수료: 1,111.11 Lumina</pre>
+
+            <h3>전략 2: 5:5 완전 분산</h3>
+            <pre>초기 LP:
+LuminaDex: 40,000 Lumina + $40,000 BNB @ $1.00
+PancakeSwap: 40,000 Lumina + $40,000 BNB @ $1.00
+총 k = 3,200,000,000
+
+[런치패드 $50,000 - Phase 1]
+유저가 LuminaDex에서 구매:
+LuminaDex: 17,777.78 Lumina + $89,875 BNB @ $5.05
+PancakeSwap: 40,000 Lumina + $40,000 BNB @ $1.00 (변화 없음)
+
+가격 괴리: 405%!
+
+[차익거래 발생 - Phase 2]
+차익거래자들이 가격 균형 맞춤:
+- PancakeSwap에서 10,666.66 Lumina 구매
+- LuminaDex에 판매
+
+균형 후:
+LuminaDex: 28,444.44 Lumina + $64,000 BNB @ $2.25
+PancakeSwap: 29,333.34 Lumina + $65,875 BNB @ $2.25
+
+가격 차이: 0.18% ✓
+
+슬리피지 (유저 관점): 136.8% (전략 1과 동일!)
+거래 수수료:
+- 런치패드: $125
+- 차익거래 (PancakeSwap): $40
+- 차익거래 (LuminaDex): $93
+- 총: $258 ✅</pre>
+
+            <h3>전략 3: 6:4 분산</h3>
+            <pre>초기 LP:
+PancakeSwap: 48,000 Lumina + $48,000 BNB @ $1.00
+LuminaDex: 32,000 Lumina + $32,000 BNB @ $1.00
+
+차익거래 후 균형:
+PancakeSwap: 35,200 Lumina + $65,280 BNB @ $1.854
+LuminaDex: 22,577.78 Lumina + $64,595 BNB @ $2.861
+
+가격 차이: 1.8% ✓
+
+슬리피지: 136.8% (동일)
+거래 수수료: $270 ✅</pre>
+        </div>
+
+        <!-- 비교표 -->
+        <div class="content-card">
+            <h2>📊 3가지 전략 비교 (Launchpad #1 기준)</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>지표</th>
+                        <th>전략 1<br>LuminaDex Only</th>
+                        <th>전략 2<br>5:5 분산</th>
+                        <th>전략 3<br>6:4 분산</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>슬리피지</strong></td>
+                        <td>136.8%</td>
+                        <td>136.8%</td>
+                        <td>136.8%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>거래 수수료</strong></td>
+                        <td>$125</td>
+                        <td><strong>$258</strong> ✅</td>
+                        <td><strong>$270</strong> ✅</td>
+                    </tr>
+                    <tr>
+                        <td><strong>런치패드 수수료</strong></td>
+                        <td>1,111 Lumina</td>
+                        <td>1,111 Lumina</td>
+                        <td>1,111 Lumina</td>
+                    </tr>
+                    <tr>
+                        <td><strong>예비 자금</strong></td>
+                        <td><strong>40K Lumina<br>+ $40K BNB</strong> ✅</td>
+                        <td>없음</td>
+                        <td>없음</td>
+                    </tr>
+                    <tr>
+                        <td><strong>리스크 분산</strong></td>
+                        <td>❌ 단일 DEX</td>
+                        <td>✅ 2개 DEX</td>
+                        <td>✅ 2개 DEX</td>
+                    </tr>
+                    <tr>
+                        <td><strong>브랜드 노출</strong></td>
+                        <td>LuminaDex만</td>
+                        <td><strong>양쪽</strong> ✅</td>
+                        <td><strong>양쪽</strong> ✅</td>
+                    </tr>
+                    <tr>
+                        <td><strong>B2C 전환 준비</strong></td>
+                        <td>추가 작업 필요</td>
+                        <td><strong>준비 완료</strong> ✅</td>
+                        <td><strong>준비 완료</strong> ✅</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- LP 추가 방식 비교 -->
+        <div class="content-card">
+            <h2>💰 LP 추가 방식 비교</h2>
+
+            <h3>방식 A: BNB만 추가 (가격 상승 전략)</h3>
+
+            <h4>장점</h4>
+            <ul>
+                <li>✅ Lumina 절약 (팀 물량 보존)</li>
+                <li>✅ 빠른 가격 상승 ($800 목표가 빠른 달성)</li>
+                <li>✅ 공격적 성장 Phase 1-2에 적합</li>
+            </ul>
+
+            <h4>단점</h4>
+            <ul>
+                <li>❌ LP Lumina 감소 → 장기적으로 슬리피지 증가</li>
+                <li>❌ LP 수명 단축</li>
+            </ul>
+
+            <h3>방식 B: 비율 유지 추가 (가격 유지 전략)</h3>
+
+            <h4>장점</h4>
+            <ul>
+                <li>✅ LP Lumina 유지 → 슬리피지 개선</li>
+                <li>✅ 가격 안정성</li>
+                <li>✅ LP 수명 연장</li>
+                <li>✅ Phase 3 가격 고정기에 적합</li>
+            </ul>
+
+            <h4>단점</h4>
+            <ul>
+                <li>❌ Lumina 추가 필요 (팀 물량 소진)</li>
+                <li>❌ 목표가 달성 느림</li>
+            </ul>
+
+            <div class="alert alert-info">
+                <p><strong>중요:</strong> LP 가치는 두 방식 모두 동일합니다!</p>
+                <ul>
+                    <li>AMM 특성상 어떻게 추가하든 최종 LP 가치는 같음</li>
+                    <li>차이는 "가격"과 "Lumina 수량"의 분배</li>
+                    <li>전략적 목표에 따라 선택</li>
+                </ul>
+            </div>
+
+            <h3>추천: 단계별 하이브리드 전략</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Phase</th>
+                        <th>기간</th>
+                        <th>LP 추가 방식</th>
+                        <th>이유</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Phase 1</td>
+                        <td>Month 1-3</td>
+                        <td><strong>100% BNB만</strong></td>
+                        <td>빠른 가격 상승, Lumina 절약</td>
+                    </tr>
+                    <tr>
+                        <td>Phase 2</td>
+                        <td>Month 4-6</td>
+                        <td><strong>70% BNB + 30% 비율</strong></td>
+                        <td>가격 상승 + 슬리피지 개선 병행</td>
+                    </tr>
+                    <tr>
+                        <td>Phase 3</td>
+                        <td>Month 7-12</td>
+                        <td><strong>100% 비율 유지</strong></td>
+                        <td>$800 유지, 슬리피지 2.1%, 지속가능성</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 수수료 수익 분석 -->
+        <div class="content-card">
+            <h2>💵 수수료 수익 상세 분석</h2>
+
+            <h3>전략 2 (5:5 분산) - Month 1 예상</h3>
+
+            <h4>Launchpad #1 ($50K)</h4>
+            <pre>런치패드 수수료: $125 (LuminaDex)
+차익거래 수수료:
+- PancakeSwap: $40
+- LuminaDex: $93
+소계: $258</pre>
+
+            <h4>Launchpad #2 ($50K)</h4>
+            <pre>런치패드 수수료: $125
+차익거래 수수료: $220 (예상)
+소계: $345</pre>
+
+            <h4>Month 1 총 수수료</h4>
+            <pre>총 거래 수수료: $603
+런치패드 수수료: 2,222 Lumina
+
+vs 전략 1:
+거래 수수료: $250
+차익거래 보너스: +$353 (141% 증가!) ✅</pre>
+
+            <h3>12개월 누적 예상 (5:5 분산)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Phase</th>
+                        <th>기간</th>
+                        <th>거래 수수료</th>
+                        <th>차익거래 보너스</th>
+                        <th>총 수수료</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Phase 1</td>
+                        <td>Month 1-3</td>
+                        <td>$1,800</td>
+                        <td>$1,200</td>
+                        <td>$3,000</td>
+                    </tr>
+                    <tr>
+                        <td>Phase 2</td>
+                        <td>Month 4-6</td>
+                        <td>$5,400</td>
+                        <td>$2,800</td>
+                        <td>$8,200</td>
+                    </tr>
+                    <tr>
+                        <td>Phase 3</td>
+                        <td>Month 7-12</td>
+                        <td>$9,000</td>
+                        <td>$3,500</td>
+                        <td>$12,500</td>
+                    </tr>
+                    <tr>
+                        <td><strong>합계</strong></td>
+                        <td><strong>12개월</strong></td>
+                        <td><strong>$16,200</strong></td>
+                        <td><strong>$7,500</strong></td>
+                        <td><strong>$23,700</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="alert alert-success">
+                <p><strong>추가 수익:</strong></p>
+                <ul>
+                    <li>전략 1 대비 +$7,500 (46% 증가)</li>
+                    <li>PancakeSwap 거래량 증가 시 더 상승</li>
+                    <li>B2C 전환 시 차익거래 더욱 활발</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 리스크 분석 -->
+        <div class="content-card">
+            <h2>⚠️ 리스크 분석</h2>
+
+            <h3>전략 1 (LuminaDex Only) 리스크</h3>
+            <div class="alert alert-danger">
+                <h4>단일 실패점 (Single Point of Failure)</h4>
+                <ul>
+                    <li>❌ LuminaDex 컨트랙트 버그 → 전체 LP 손실</li>
+                    <li>❌ LuminaDex 해킹 → 운영 중단</li>
+                    <li>❌ 오라클 문제 → 가격 조작 가능</li>
+                </ul>
+
+                <h4>브랜드 노출 제한</h4>
+                <ul>
+                    <li>❌ PancakeSwap 유저들 접근 불가</li>
+                    <li>❌ B2C 전환 시 추가 작업 필요</li>
+                </ul>
+
+                <h4>차익거래 부재</h4>
+                <ul>
+                    <li>❌ 추가 수수료 수익 없음 (-$7,500/년)</li>
+                </ul>
+            </div>
+
+            <h3>전략 2/3 (분산) 리스크</h3>
+            <div class="alert alert-warning">
+                <h4>차익거래 의존성</h4>
+                <ul>
+                    <li>⚠️ 차익거래자 부족 시 가격 괴리 발생</li>
+                    <li>⚠️ Gas fee 급등 시 차익거래 둔화</li>
+                    <li>해결: 초기 차익거래 봇 운영 고려</li>
+                </ul>
+
+                <h4>관리 복잡도</h4>
+                <ul>
+                    <li>⚠️ 2개 DEX 모니터링 필요</li>
+                    <li>⚠️ LP 추가 시 양쪽 비율 계산</li>
+                    <li>해결: 자동화 스크립트 구축</li>
+                </ul>
+
+                <h4>초기 자금 전량 투입</h4>
+                <ul>
+                    <li>⚠️ 예비 자금 없음</li>
+                    <li>⚠️ 긴급 상황 대응 어려움</li>
+                    <li>해결: 런치패드 수익으로 비상 자금 확보</li>
+                </ul>
+            </div>
+
+            <h3>리스크 완화 전략</h3>
+            <ul>
+                <li>✅ 컨트랙트 감사 (Audit) 필수</li>
+                <li>✅ 멀티시그 지갑 사용</li>
+                <li>✅ 가격 모니터링 시스템 구축</li>
+                <li>✅ 차익거래 봇 초기 운영</li>
+                <li>✅ 비상 대응 매뉴얼 작성</li>
+            </ul>
+        </div>
+
+        <!-- 최종 권장 -->
+        <div class="content-card">
+            <h2>✅ 최종 권장 전략</h2>
+
+            <div class="alert alert-success">
+                <h3>🏆 전략 2: 5:5 완전 분산 (추천)</h3>
+
+                <h4>초기 배분</h4>
+                <pre>LuminaDex: 40,000 Lumina + $40,000 BNB
+PancakeSwap: 40,000 Lumina + $40,000 BNB
+예비: 0 (런치패드 수익으로 확보)</pre>
+
+                <h4>추천 이유</h4>
+                <ol>
+                    <li><strong>슬리피지 동일</strong> (136.8%)
+                        <ul>
+                            <li>총 LP 크기 동일 → 유저 경험 동일</li>
+                            <li>차익거래로 통합 LP처럼 작동</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>수수료 수익 46% 증가</strong> (+$7,500/년)
+                        <ul>
+                            <li>차익거래 수수료 양쪽에서 발생</li>
+                            <li>PancakeSwap 일반 거래도 추가 수익</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>리스크 분산</strong>
+                        <ul>
+                            <li>한쪽 DEX 문제 발생 시에도 운영 지속</li>
+                            <li>50% LP는 안전하게 보존</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>브랜드 노출 2배</strong>
+                        <ul>
+                            <li>PancakeSwap 유저들도 Lumina 접근 가능</li>
+                            <li>B2C 전환 준비 완료</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>유연한 운영</strong>
+                        <ul>
+                            <li>두 풀 간 LP 재분배 가능</li>
+                            <li>시장 상황에 따라 비율 조정</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <h3>실행 계획</h3>
+
+            <h4>Day 1: LP 구성</h4>
+            <ol>
+                <li>PancakeSwap Lumina-WBNB 풀 생성: 40,000 + $40,000</li>
+                <li>LuminaDex Lumina-BNB 풀 생성: 40,000 + $40,000</li>
+                <li>가격 동기화 확인 (양쪽 $1.00)</li>
+            </ol>
+
+            <h4>Day 2-3: 모니터링 시스템</h4>
+            <ol>
+                <li>가격 모니터링 대시보드 구축</li>
+                <li>차익거래 알림 설정 (2% 이상 괴리 시)</li>
+                <li>초기 차익거래 봇 운영 (필요 시)</li>
+            </ol>
+
+            <h4>Week 1: 첫 런치패드</h4>
+            <ol>
+                <li>소규모 런치패드 진행 ($50K)</li>
+                <li>차익거래 발생 확인</li>
+                <li>슬리피지 측정 및 검증</li>
+                <li>수수료 수익 확인</li>
+            </ol>
+
+            <h4>Month 1 이후: 최적화</h4>
+            <ol>
+                <li>차익거래 패턴 분석</li>
+                <li>필요시 LP 비율 조정 (5:5 → 6:4 or 4:6)</li>
+                <li>수수료 수익 재투자 전략 수립</li>
+            </ol>
+        </div>
+
+        <!-- 대안 시나리오 -->
+        <div class="content-card">
+            <h2>🔄 대안 시나리오: 전략 1 선택 시</h2>
+
+            <div class="alert alert-info">
+                <h3>전략 1을 선택해야 하는 경우</h3>
+                <ul>
+                    <li>✅ 예비 자금 확보가 최우선 (40K Lumina + $40K BNB)</li>
+                    <li>✅ 초기 관리 복잡도 최소화 필요</li>
+                    <li>✅ PancakeSwap 배포 지연 필요 (감사 등)</li>
+                    <li>✅ 차익거래 검증 후 점진적 확대 원함</li>
+                </ul>
+
+                <h3>전략 1 → 전략 2 전환 계획</h3>
+                <p><strong>Month 3-4 시점 (가격 $100-300 도달 시)</strong></p>
+                <ol>
+                    <li>예비 자금 40K Lumina + $40K BNB 중 절반 사용</li>
+                    <li>PancakeSwap LP 구성: 20K Lumina + $20K BNB</li>
+                    <li>차익거래 발생 확인 및 모니터링</li>
+                    <li>안정화 후 나머지 절반도 이동 고려</li>
+                </ol>
+
+                <p><strong>장점:</strong></p>
+                <ul>
+                    <li>✅ 초기 리스크 최소화</li>
+                    <li>✅ 실전 검증 후 확대</li>
+                    <li>✅ 예비 자금 활용 가능</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 결론 -->
+        <div class="content-card">
+            <h2>📝 결론</h2>
+
+            <h3>핵심 발견 요약</h3>
+            <ol>
+                <li><strong>슬리피지는 총 LP 크기에만 의존</strong>
+                    <ul>
+                        <li>80K + 80K 동일 → 슬리피지 136.8% 동일</li>
+                        <li>분산해도 차익거래로 통합 LP처럼 작동</li>
+                    </ul>
+                </li>
+
+                <li><strong>분산의 진짜 장점은 수수료와 리스크</strong>
+                    <ul>
+                        <li>수수료 수익 46% 증가 (+$7,500/년)</li>
+                        <li>DEX 리스크 50% 분산</li>
+                        <li>브랜드 노출 2배</li>
+                    </ul>
+                </li>
+
+                <li><strong>LP 추가 방식은 단계별 전략</strong>
+                    <ul>
+                        <li>Phase 1-2: BNB만 추가 (빠른 성장)</li>
+                        <li>Phase 3: 비율 유지 (안정화)</li>
+                    </ul>
+                </li>
+
+                <li><strong>예비 자금 vs 즉시 배포</strong>
+                    <ul>
+                        <li>전략 1: 예비 40K 보유 (안전)</li>
+                        <li>전략 2: 전량 배포 (수익 극대화)</li>
+                        <li>→ 런치패드 수익으로 보충 가능</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>최종 추천</h3>
+            <div class="alert alert-success">
+                <p><strong>🏆 전략 2 (5:5 완전 분산) 강력 추천</strong></p>
+                <ul>
+                    <li>슬리피지 동일 + 수수료 46% 증가 + 리스크 분산</li>
+                    <li>단, 차익거래 모니터링 시스템 필수</li>
+                    <li>초기 차익거래 봇 운영 권장</li>
+                </ul>
+            </div>
+
+            <h3>다음 단계</h3>
+            <ol>
+                <li>팀 내부 논의 및 전략 확정</li>
+                <li>컨트랙트 감사 (LuminaDex, PancakeSwap)</li>
+                <li>모니터링 시스템 구축</li>
+                <li>차익거래 봇 개발 (선택)</li>
+                <li>첫 LP 배포 및 테스트</li>
+                <li>첫 런치패드 진행</li>
+            </ol>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 LuminaDex. All rights reserved.</p>
+        <p class="footer-note">이 문서는 내부 전략 분석 자료입니다.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
