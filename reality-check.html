@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>현실성 검증 시뮬레이션 | LuminaDex</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .reality-score {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        .score-high { background: #48bb78; color: white; }
+        .score-medium { background: #ed8936; color: white; }
+        .score-low { background: #f56565; color: white; }
+        .comparison-table td:nth-child(2) { background: #fee; }
+        .comparison-table td:nth-child(3) { background: #efe; }
+        .risk-level {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+        .risk-critical { background: #fc8181; color: white; }
+        .risk-high { background: #f6ad55; color: white; }
+        .risk-medium { background: #fbd38d; color: #744210; }
+        .risk-low { background: #9ae6b4; color: #22543d; }
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        <a href="index.html" class="back-button">← 대시보드로 돌아가기</a>
+        <h1>🔍 현실성 검증 시뮬레이션</h1>
+        <p>4개 MD 파일 기반 고도의 현실성 분석</p>
+    </div>
+
+    <div class="content-section">
+        <!-- Executive Summary -->
+        <div class="content-card">
+            <h2>📊 Executive Summary</h2>
+
+            <div class="alert alert-warning">
+                <h3>⚠️ 핵심 발견</h3>
+                <p><strong>원래 계획의 현실성: 35% (낮음)</strong></p>
+                <p><strong>개선 계획 현실성: 68% (중간)</strong></p>
+                <ul>
+                    <li>과도하게 낙관적인 가정 다수</li>
+                    <li>주요 리스크 간과 (규제, 팀, 비용)</li>
+                    <li>개선 시 실현 가능성 있음</li>
+                </ul>
+            </div>
+
+            <h3>종합 평가</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>구분</th>
+                        <th>원래 계획</th>
+                        <th>개선 필요</th>
+                        <th>개선 후</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>평균 현실성</strong></td>
+                        <td><span class="reality-score score-low">35%</span></td>
+                        <td>주요 리스크 해결</td>
+                        <td><span class="reality-score score-medium">68%</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>성공 확률</strong></td>
+                        <td>&lt;20%</td>
+                        <td>-</td>
+                        <td>40-60%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>필요 추가 투자</strong></td>
+                        <td>$0</td>
+                        <td>+$190K</td>
+                        <td>$530K 총</td>
+                    </tr>
+                    <tr>
+                        <td><strong>예상 ROI (현실적)</strong></td>
+                        <td>2,828%</td>
+                        <td>조정</td>
+                        <td>100-200%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 10가지 검증 항목 -->
+        <div class="content-card">
+            <h2>🎯 10가지 핵심 검증 항목</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>항목</th>
+                        <th>계획</th>
+                        <th>현실성</th>
+                        <th>개선 후</th>
+                        <th>리스크</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. 런치패드 수요</td>
+                        <td>24개</td>
+                        <td><span class="reality-score score-low">20%</span></td>
+                        <td><span class="reality-score score-medium">60%</span></td>
+                        <td><span class="risk-level risk-high">높음</span></td>
+                    </tr>
+                    <tr>
+                        <td>2. 초기 슬리피지</td>
+                        <td>136%</td>
+                        <td><span class="reality-score score-low">10%</span></td>
+                        <td><span class="reality-score score-high">70%</span></td>
+                        <td><span class="risk-level risk-critical">매우 높음</span></td>
+                    </tr>
+                    <tr>
+                        <td>3. LP 투자 조달</td>
+                        <td>$300K</td>
+                        <td><span class="reality-score score-high">75%</span></td>
+                        <td><span class="reality-score score-high">80%</span></td>
+                        <td><span class="risk-level risk-medium">중간</span></td>
+                    </tr>
+                    <tr>
+                        <td>4. 가격 안정화</td>
+                        <td>$800 ±20%</td>
+                        <td><span class="reality-score score-low">30%</span></td>
+                        <td><span class="reality-score score-high">70%</span></td>
+                        <td><span class="risk-level risk-high">높음</span></td>
+                    </tr>
+                    <tr>
+                        <td>5. 차익거래 효율</td>
+                        <td>1-2% 괴리</td>
+                        <td><span class="reality-score score-medium">60%</span></td>
+                        <td><span class="reality-score score-high">80%</span></td>
+                        <td><span class="risk-level risk-low">낮음</span></td>
+                    </tr>
+                    <tr>
+                        <td>6. 프로젝트 유치</td>
+                        <td>B2B 24개</td>
+                        <td><span class="reality-score score-low">30%</span></td>
+                        <td><span class="reality-score score-medium">65%</span></td>
+                        <td><span class="risk-level risk-high">높음</span></td>
+                    </tr>
+                    <tr>
+                        <td>7. 운영 비용</td>
+                        <td>$216K</td>
+                        <td><span class="reality-score score-low">40%</span></td>
+                        <td><span class="reality-score score-high">80%</span></td>
+                        <td><span class="risk-level risk-medium">중간</span></td>
+                    </tr>
+                    <tr>
+                        <td>8. ROI 달성</td>
+                        <td>2,828%</td>
+                        <td><span class="reality-score score-low">5%</span></td>
+                        <td><span class="reality-score score-medium">50%</span></td>
+                        <td><span class="risk-level risk-medium">중간</span></td>
+                    </tr>
+                    <tr>
+                        <td>9. 규제 준수</td>
+                        <td>미명시</td>
+                        <td><span class="reality-score score-low">20%</span></td>
+                        <td><span class="reality-score score-medium">60%</span></td>
+                        <td><span class="risk-level risk-critical">매우 높음</span></td>
+                    </tr>
+                    <tr>
+                        <td>10. 팀 스케일업</td>
+                        <td>미명시</td>
+                        <td><span class="reality-score score-low">30%</span></td>
+                        <td><span class="reality-score score-high">70%</span></td>
+                        <td><span class="risk-level risk-high">높음</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 1. 런치패드 수요 -->
+        <div class="content-card">
+            <h2>1️⃣ 런치패드 수요 현실성</h2>
+
+            <div class="alert alert-warning">
+                <p><strong>계획:</strong> 12개월 24개 런치패드</p>
+                <p><strong>원래 현실성:</strong> <span class="reality-score score-low">20%</span></p>
+                <p><strong>개선 후:</strong> <span class="reality-score score-medium">60%</span> (12-17개 달성 가능)</p>
+            </div>
+
+            <h3>시장 현황</h3>
+            <pre>BSC 런치패드 경쟁 (2025):
+PancakeSwap IFO: 월 1-2개
+Binance Launchpad: 월 0-1개
+TrustPad: 월 2-3개
+
+LuminaDex 목표: 월 2개
+→ 시장 점유율 25-67% 필요
+→ 신규 플랫폼으로 매우 도전적</pre>
+
+            <h3>시나리오별 예상</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>시나리오</th>
+                        <th>확률</th>
+                        <th>런치패드</th>
+                        <th>총 모금액</th>
+                        <th>LP 가치</th>
+                        <th>실제 ROI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #ffe;">
+                        <td><strong>계획</strong></td>
+                        <td>20%</td>
+                        <td>24개</td>
+                        <td>$3.75M</td>
+                        <td>$9.96M</td>
+                        <td>164%</td>
+                    </tr>
+                    <tr style="background: #efe;">
+                        <td><strong>낙관</strong></td>
+                        <td>30%</td>
+                        <td>17개</td>
+                        <td>$2.55M</td>
+                        <td>$6.8M</td>
+                        <td>100%</td>
+                    </tr>
+                    <tr style="background: #efe;">
+                        <td><strong>보통</strong></td>
+                        <td>40%</td>
+                        <td>12개</td>
+                        <td>$1.5M</td>
+                        <td>$4.2M</td>
+                        <td>24%</td>
+                    </tr>
+                    <tr>
+                        <td>비관</td>
+                        <td>10%</td>
+                        <td>6개</td>
+                        <td>$0.75M</td>
+                        <td>$2.1M</td>
+                        <td>-38%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>개선 방안</h3>
+            <ol>
+                <li><strong>초기 앵커 고객 확보 (2-3개)</strong>
+                    <ul>
+                        <li>파일럿 프로그램으로 유치</li>
+                        <li>수수료 50% 할인</li>
+                        <li>집중 마케팅 지원</li>
+                    </ul>
+                </li>
+                <li><strong>파트너십 구축</strong>
+                    <ul>
+                        <li>블록체인 인큐베이터 제휴</li>
+                        <li>VC 파트너 (프로젝트 소개)</li>
+                        <li>비용: $30-50K</li>
+                    </ul>
+                </li>
+                <li><strong>마케팅 투자</strong>
+                    <ul>
+                        <li>컨퍼런스 참가: $20K</li>
+                        <li>PR/미디어: $30K</li>
+                        <li>인플루언서: $20K</li>
+                        <li>총: $70K (Year 1)</li>
+                    </ul>
+                </li>
+                <li><strong>보수적 목표 설정</strong>
+                    <ul>
+                        <li>Month 1-3: 2-4개</li>
+                        <li>Month 4-6: 4-6개</li>
+                        <li>Month 7-12: 6-8개</li>
+                        <li>총: 12-18개 (현실적)</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <div class="alert alert-success">
+                <p><strong>권장사항:</strong></p>
+                <ul>
+                    <li>✅ 보수적 목표: 12개 (보통 시나리오)</li>
+                    <li>✅ 마케팅 예산: $70K 추가</li>
+                    <li>✅ 파트너십 우선 확보</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 2. 초기 슬리피지 -->
+        <div class="content-card">
+            <h2>2️⃣ 초기 슬리피지 허용 현실성</h2>
+
+            <div class="alert alert-danger">
+                <p><strong>계획:</strong> 첫 런치패드 136.8% 슬리피지</p>
+                <p><strong>원래 현실성:</strong> <span class="reality-score score-low">10%</span> (유저 99% 이탈)</p>
+                <p><strong>개선 후:</strong> <span class="reality-score score-high">70%</span> (파일럿 프로그램)</p>
+            </div>
+
+            <h3>문제의 심각성</h3>
+            <pre>136.8% 슬리피지 = 유저 관점:
+
+$1,000 투자 의도
+→ 실제 필요 금액: $2,368
+→ 추가 비용: $1,368 (137%!)
+
+업계 표준: 0.5-5%
+극단적 허용: 10-20%
+136.8%: 완전히 비현실적 ❌</pre>
+
+            <h3>실제 사례</h3>
+            <ul>
+                <li><strong>PancakeSwap 초기 IFO:</strong> 10-15% 슬리피지에도 불만 폭주</li>
+                <li><strong>Uniswap V2:</strong> 30% 이상 시 참여 거의 없음</li>
+                <li><strong>예상 결과:</strong> 첫 런치패드 실패 → 신뢰 붕괴 → 프로젝트 종료</li>
+            </ul>
+
+            <h3>파일럿 프로그램 (필수)</h3>
+
+            <h4>전략</h4>
+            <pre>첫 3개 런치패드:
+
+규모 축소: $50K → $25K
+슬리피지: 136% → 68%
+
+참여자 보상:
++ 보너스 토큰 +20%
++ "초기 참여자" NFT 배지
++ 향후 우선 참여권
+
+유저 실질 손실:
+68% - 20% (보너스) = 48%
+→ 수용 가능 범위
+
+홍보:
+"파일럿 프로그램 - 특별 혜택"
+"초기 참여자 한정"</pre>
+
+            <h4>비용</h4>
+            <pre>보너스 토큰: 프로젝트 부담 (협의)
+또는 LuminaDex 부담: $5-10K
+NFT 제작: $2-3K
+총: $7-13K</pre>
+
+            <h3>LP 증액 대안 (차선책)</h3>
+            <pre>초기 LP 2배 증가:
+80K + 80K → 160K + 160K
+
+슬리피지: 136% → 68%
+추가 투자: $80K
+
+장점:
+✅ 근본적 해결
+✅ 이후 런치패드도 개선
+
+단점:
+❌ 초기 자본 2배 필요
+❌ 조달 어려움</pre>
+
+            <div class="alert alert-success">
+                <p><strong>권장사항:</strong></p>
+                <ul>
+                    <li>✅ 필수: 파일럿 프로그램 ($10-15K)</li>
+                    <li>✅ 첫 3개 런치패드 규모 축소</li>
+                    <li>✅ 참여자 보상 20% 제공</li>
+                    <li>⚠️ LP 증액은 자금 여유 있을 때</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 9. 규제 리스크 (가장 중요) -->
+        <div class="content-card">
+            <h2>9️⃣ 규제 리스크 (가장 간과됨)</h2>
+
+            <div class="alert alert-danger">
+                <p><strong>계획:</strong> 규제 전혀 언급 없음</p>
+                <p><strong>원래 현실성:</strong> <span class="reality-score score-low">20%</span></p>
+                <p><strong>개선 후:</strong> <span class="reality-score score-medium">60%</span> (점진적 준수)</p>
+                <p><strong>⚠️ MD 파일에서 완전히 누락된 가장 큰 리스크!</strong></p>
+            </div>
+
+            <h3>주요 규제 리스크</h3>
+
+            <h4>1. 증권법 위반 가능성</h4>
+            <pre>Lumina 토큰:
+- 투자 수익 기대 → 증권 가능성 높음
+- Howey Test 적용 시 위험
+
+런치패드:
+- 토큰 판매 = 증권 발행?
+- SEC 규제 대상 가능
+
+처벌 (미국):
+💰 벌금: 수백만-수천만 달러
+⚖️ 형사 처벌: 최대 20년
+🚫 운영 중단
+❌ 자산 몰수</pre>
+
+            <h4>2. 국가별 규제</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>국가/지역</th>
+                        <th>규제</th>
+                        <th>비용</th>
+                        <th>기간</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>미국</strong></td>
+                        <td>SEC 증권법, MSB 등록</td>
+                        <td>$50-200K</td>
+                        <td>6-12개월</td>
+                    </tr>
+                    <tr>
+                        <td><strong>한국</strong></td>
+                        <td>특금법, 가상자산 사업자 신고</td>
+                        <td>$30-50K</td>
+                        <td>3-6개월</td>
+                    </tr>
+                    <tr>
+                        <td><strong>EU</strong></td>
+                        <td>MiCA 라이센스</td>
+                        <td>$100-300K</td>
+                        <td>12-18개월</td>
+                    </tr>
+                    <tr>
+                        <td><strong>중국</strong></td>
+                        <td>암호화폐 전면 금지</td>
+                        <td>N/A</td>
+                        <td>불가능</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>3. KYC/AML 요구사항</h4>
+            <pre>$10K+ 거래:
+→ KYC 필수 (대부분 국가)
+→ 자금 출처 확인
+→ 의심 거래 보고
+
+런치패드 $50-200K:
+→ 모든 참여자 KYC 필요
+→ 기업 고객은 더 엄격
+
+미준수 시:
+💰 벌금
+⚖️ 형사 처벌
+🚫 라이센스 취소</pre>
+
+            <h3>규제 준수 비용</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>항목</th>
+                        <th>초기 비용</th>
+                        <th>연간 비용</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>법률 자문</td>
+                        <td>$30-50K</td>
+                        <td>$50-100K</td>
+                    </tr>
+                    <tr>
+                        <td>라이센스/등록</td>
+                        <td>$100-300K</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>KYC/AML 시스템</td>
+                        <td>$20-50K</td>
+                        <td>$20-30K</td>
+                    </tr>
+                    <tr>
+                        <td>컴플라이언스 담당</td>
+                        <td>-</td>
+                        <td>$80-120K</td>
+                    </tr>
+                    <tr>
+                        <td>감사/보고</td>
+                        <td>$10-20K</td>
+                        <td>$30-50K</td>
+                    </tr>
+                    <tr>
+                        <td><strong>총계</strong></td>
+                        <td><strong>$160-440K</strong></td>
+                        <td><strong>$180-300K</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>점진적 준수 전략 (권장)</h3>
+
+            <h4>Phase 1: 제한적 베타 (Month 1-6)</h4>
+            <pre>전략:
+✅ 특정 지역만 서비스 (규제 우호적)
+✅ 기본 KYC 적용
+✅ 거래 규모 제한 ($10K 미만/유저)
+✅ 법률 자문 고용
+
+대상 지역:
+- 싱가포르, 스위스, UAE 등
+- 미국/한국/EU 차단 (초기)
+
+비용: $50-100K
+리스크: 중간 (회색 지대)</pre>
+
+            <h4>Phase 2: 라이센스 취득 (Month 7-12)</h4>
+            <pre>전략:
+✅ 주요 시장 라이센스 준비
+✅ 완전 KYC/AML 구축
+✅ 컴플라이언스 팀 구성
+
+대상 시장:
+- 한국 or 싱가포르 (우선)
+- 미국은 이후 고려
+
+비용: $200-400K
+리스크: 낮음</pre>
+
+            <h4>Phase 3: 글로벌 확장 (Year 2+)</h4>
+            <pre>전략:
+✅ 전 세계 라이센스
+✅ 기관 투자자 대응
+✅ 완전 규제 준수
+
+비용: $500K+
+리스크: 매우 낮음</pre>
+
+            <h3>최악의 시나리오</h3>
+
+            <div class="alert alert-danger">
+                <h4>규제 무시 → SEC/한국 금융위 조사:</h4>
+                <ul>
+                    <li>변호사 비용: $500K-$2M</li>
+                    <li>벌금: $1M-$10M</li>
+                    <li>비즈니스 폐쇄</li>
+                    <li>형사 처벌 (창업자)</li>
+                    <li>투자자 손실 (소송)</li>
+                </ul>
+                <p><strong>발생 확률: 30-50% (무대응 시)</strong></p>
+            </div>
+
+            <div class="alert alert-success">
+                <h3>권장사항</h3>
+                <ul>
+                    <li>✅ 필수: 즉시 법률 자문 고용 ($30-50K)</li>
+                    <li>✅ 필수: 지역 제한 전략 (Phase 1)</li>
+                    <li>✅ Year 1 추가 예산: $100K (법률/컴플라이언스)</li>
+                    <li>✅ 6-12개월 라이센스 준비 기간</li>
+                    <li>⚠️ 미국/한국 초기 제외 고려</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 재무 영향 종합 -->
+        <div class="content-card">
+            <h2>💰 재무 영향 종합 분석</h2>
+
+            <h3>계획 vs 현실 비교</h3>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>항목</th>
+                        <th>원래 계획</th>
+                        <th>현실적 조정</th>
+                        <th>차이</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>투자 (12개월)</strong></td>
+                        <td>$340,000</td>
+                        <td>$530,000</td>
+                        <td><span style="color: red;">+$190K</span></td>
+                    </tr>
+                    <tr>
+                        <td>- 초기 LP</td>
+                        <td>$80,000</td>
+                        <td>$80,000</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>- 추가 LP (BNB)</td>
+                        <td>$260,000</td>
+                        <td>$260,000</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>- 운영비</td>
+                        <td>$216,000</td>
+                        <td>$310,000</td>
+                        <td><span style="color: red;">+$94K</span></td>
+                    </tr>
+                    <tr>
+                        <td>- 법률/규제 (신규)</td>
+                        <td>$0</td>
+                        <td>$100,000</td>
+                        <td><span style="color: red;">+$100K</span></td>
+                    </tr>
+                    <tr>
+                        <td>- 마케팅 추가 (신규)</td>
+                        <td>$0</td>
+                        <td>$70,000</td>
+                        <td><span style="color: red;">+$70K</span></td>
+                    </tr>
+                    <tr>
+                        <td>- 파일럿 프로그램 (신규)</td>
+                        <td>$0</td>
+                        <td>$10,000</td>
+                        <td><span style="color: red;">+$10K</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>항목</th>
+                        <th>원래 계획</th>
+                        <th>현실적 조정</th>
+                        <th>차이</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>수익 (12개월)</strong></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>- 런치패드 수</td>
+                        <td>24개</td>
+                        <td>12-17개</td>
+                        <td><span style="color: red;">-50%</span></td>
+                    </tr>
+                    <tr>
+                        <td>- 총 모금액</td>
+                        <td>$3.75M</td>
+                        <td>$1.5-2.5M</td>
+                        <td><span style="color: red;">-40%</span></td>
+                    </tr>
+                    <tr>
+                        <td>- LP 평가 가치</td>
+                        <td>$9.96M</td>
+                        <td>$4-7M</td>
+                        <td><span style="color: red;">-50%</span></td>
+                    </tr>
+                    <tr>
+                        <td>- 실현 가능 현금</td>
+                        <td>$900K</td>
+                        <td>$200-400K</td>
+                        <td><span style="color: red;">-55%</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>항목</th>
+                        <th>원래 계획</th>
+                        <th>현실적 조정</th>
+                        <th>차이</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ROI</strong></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>- 평가 기준 ROI</td>
+                        <td>2,828%</td>
+                        <td>750-1,200%</td>
+                        <td><span style="color: red;">-60%</span></td>
+                    </tr>
+                    <tr>
+                        <td>- 실현 가능 ROI</td>
+                        <td>164%</td>
+                        <td>30-75%</td>
+                        <td><span style="color: red;">-55%</span></td>
+                    </tr>
+                    <tr>
+                        <td>- 손익분기</td>
+                        <td>Month 3-4</td>
+                        <td>Month 6-9</td>
+                        <td><span style="color: red;">+3-5개월</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>시나리오별 최종 결과 (12개월)</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>시나리오</th>
+                        <th>확률</th>
+                        <th>투자</th>
+                        <th>LP 가치</th>
+                        <th>현금</th>
+                        <th>실현 ROI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #ffe;">
+                        <td><strong>원래 계획</strong></td>
+                        <td>5%</td>
+                        <td>$340K</td>
+                        <td>$9.96M</td>
+                        <td>$900K</td>
+                        <td>164%</td>
+                    </tr>
+                    <tr style="background: #efe;">
+                        <td><strong>낙관적</strong></td>
+                        <td>30%</td>
+                        <td>$530K</td>
+                        <td>$7.0M</td>
+                        <td>$400K</td>
+                        <td>75%</td>
+                    </tr>
+                    <tr style="background: #efe;">
+                        <td><strong>보통 (현실적)</strong></td>
+                        <td>50%</td>
+                        <td>$530K</td>
+                        <td>$4.5M</td>
+                        <td>$250K</td>
+                        <td>47%</td>
+                    </tr>
+                    <tr>
+                        <td>비관적</td>
+                        <td>15%</td>
+                        <td>$530K</td>
+                        <td>$2.5M</td>
+                        <td>$100K</td>
+                        <td>-19%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="alert alert-info">
+                <h3>해석</h3>
+                <ul>
+                    <li><strong>보통 시나리오 (50% 확률):</strong> 47% ROI</li>
+                    <li>투자 $530K → 현금 $250K + LP $4.5M</li>
+                    <li>2-3년 운영 시 ROI 100-200% 기대 가능</li>
+                    <li>즉각적 대박은 아니지만 견고한 비즈니스</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 최종 권장사항 -->
+        <div class="content-card">
+            <h2>✅ 최종 권장사항</h2>
+
+            <div class="alert alert-success">
+                <h3>🎯 핵심 개선 사항 (필수 10가지)</h3>
+
+                <h4>1. 파일럿 프로그램 ($10-15K)</h4>
+                <ul>
+                    <li>첫 3개 런치패드 규모 축소 ($25K)</li>
+                    <li>참여자 보상 20% 제공</li>
+                    <li>초기 슬리피지 68%로 감소</li>
+                </ul>
+
+                <h4>2. 법률 자문 고용 ($30-50K)</h4>
+                <ul>
+                    <li>즉시 크립토 전문 변호사 확보</li>
+                    <li>규제 리스크 평가</li>
+                    <li>점진적 준수 전략 수립</li>
+                </ul>
+
+                <h4>3. 지역 제한 전략</h4>
+                <ul>
+                    <li>초기 미국/한국/EU 차단</li>
+                    <li>규제 우호적 지역만 서비스</li>
+                    <li>geoblocking 구현 ($10K)</li>
+                </ul>
+
+                <h4>4. 마케팅 투자 ($70K Year 1)</h4>
+                <ul>
+                    <li>컨퍼런스 참가: $20K</li>
+                    <li>PR/미디어: $30K</li>
+                    <li>인플루언서: $20K</li>
+                </ul>
+
+                <h4>5. 파트너십 우선 확보</h4>
+                <ul>
+                    <li>블록체인 인큐베이터 제휴</li>
+                    <li>VC 네트워크 구축</li>
+                    <li>비용: $30-50K (BD 비용 포함)</li>
+                </ul>
+
+                <h4>6. 보수적 목표 설정</h4>
+                <ul>
+                    <li>런치패드: 24개 → 12-17개</li>
+                    <li>ROI: 2,828% → 50-150%</li>
+                    <li>손익분기: Month 6-9</li>
+                </ul>
+
+                <h4>7. 운영비 현실화 ($310K/년)</h4>
+                <ul>
+                    <li>인건비: $180-240K</li>
+                    <li>인프라: $20K</li>
+                    <li>마케팅: $50K (기본)</li>
+                    <li>법무: $40K</li>
+                    <li>기타: $20K</li>
+                </ul>
+
+                <h4>8. 차익거래 봇 개발 ($10-20K)</h4>
+                <ul>
+                    <li>자체 봇으로 가격 안정화</li>
+                    <li>1-3% 괴리 유지</li>
+                    <li>수수료 수익 자체 확보</li>
+                </ul>
+
+                <h4>9. 팀 구성 계획</h4>
+                <ul>
+                    <li>초기 3명 코어팀 (CTO, Dev, CEO)</li>
+                    <li>Equity 중심 보상 구조</li>
+                    <li>6개월 후 투자 유치 → 확장</li>
+                </ul>
+
+                <h4>10. 가격 목표 조정</h4>
+                <ul>
+                    <li>$800 ±20% → $400-$1,200</li>
+                    <li>"목표 가격대"로 표현</li>
+                    <li>엄격한 페깅 약속 안 함</li>
+                </ul>
+            </div>
+
+            <h3>📊 조정된 예산</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>항목</th>
+                        <th>금액</th>
+                        <th>타이밍</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="3"><strong>초기 자본 (Month 0)</strong></td>
+                    </tr>
+                    <tr>
+                        <td>초기 LP (5:5 분산)</td>
+                        <td>$80,000</td>
+                        <td>Day 1</td>
+                    </tr>
+                    <tr>
+                        <td>법률 자문</td>
+                        <td>$30,000</td>
+                        <td>Month 0-1</td>
+                    </tr>
+                    <tr>
+                        <td>개발/감사</td>
+                        <td>$50,000</td>
+                        <td>Month 0-2</td>
+                    </tr>
+                    <tr>
+                        <td>운영비 3개월</td>
+                        <td>$77,500</td>
+                        <td>Month 0-3</td>
+                    </tr>
+                    <tr>
+                        <td><strong>소계</strong></td>
+                        <td><strong>$237,500</strong></td>
+                        <td>론칭 전</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><strong>추가 자금 (Month 1-12)</strong></td>
+                    </tr>
+                    <tr>
+                        <td>LP 추가 투자</td>
+                        <td>$260,000</td>
+                        <td>런치패드마다</td>
+                    </tr>
+                    <tr>
+                        <td>운영비 (9개월)</td>
+                        <td>$232,500</td>
+                        <td>월별</td>
+                    </tr>
+                    <tr>
+                        <td>마케팅</td>
+                        <td>$70,000</td>
+                        <td>분기별</td>
+                    </tr>
+                    <tr>
+                        <td>파일럿/기타</td>
+                        <td>$20,000</td>
+                        <td>초기</td>
+                    </tr>
+                    <tr>
+                        <td><strong>소계</strong></td>
+                        <td><strong>$582,500</strong></td>
+                        <td>12개월</td>
+                    </tr>
+                    <tr style="background: #ffe;">
+                        <td><strong>총 필요 자금</strong></td>
+                        <td><strong>$820,000</strong></td>
+                        <td>12개월</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>💼 자금 조달 계획</h3>
+
+            <pre>【Phase 1: Seed Round】($300K, Month 0)
+────────────────────────────
+목적: 초기 론칭 + 3개월 운영
+사용처:
+- 초기 LP: $80K
+- 법률/개발: $80K
+- 운영비 (3개월): $78K
+- 마케팅: $30K
+- 비상금: $32K
+
+밸류에이션: $1.2M pre-money
+지분: 20%
+
+【Phase 2: 런치패드 수익】(Month 1-6)
+────────────────────────────
+예상 수익: $150-250K
+재투자: LP 확대 + 운영비
+
+【Phase 3: Series A】($500K, Month 6-9)
+────────────────────────────
+조건: 5-10개 런치패드 성공 증명
+목적: 팀 확장 + 글로벌 진출
+밸류에이션: $4-5M pre-money
+지분: 10-12%</pre>
+
+            <div class="alert alert-warning">
+                <h3>⚠️ 중요한 결정</h3>
+                <p><strong>원래 계획으로 진행하면...</strong></p>
+                <ul>
+                    <li>성공 확률: &lt;20%</li>
+                    <li>규제 리스크: 매우 높음</li>
+                    <li>유저 이탈: 거의 확실</li>
+                    <li>ROI 달성: 거의 불가능</li>
+                </ul>
+
+                <p><strong>개선 계획으로 진행하면...</strong></p>
+                <ul>
+                    <li>성공 확률: 40-60%</li>
+                    <li>규제 리스크: 관리 가능</li>
+                    <li>유저 경험: 수용 가능</li>
+                    <li>ROI: 50-150% (현실적)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 결론 -->
+        <div class="content-card">
+            <h2>🎯 최종 결론</h2>
+
+            <div class="alert alert-success">
+                <h3>✅ LuminaDex는 실현 가능하다 (조건부)</h3>
+
+                <p><strong>핵심 전제 조건:</strong></p>
+                <ol>
+                    <li><strong>추가 투자 $480K 확보</strong>
+                        <ul>
+                            <li>Seed Round $300K (필수)</li>
+                            <li>Series A $500K (6-9개월 후)</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>파일럿 프로그램 성공</strong>
+                        <ul>
+                            <li>첫 3개 런치패드 안정적 운영</li>
+                            <li>유저 경험 개선 검증</li>
+                            <li>커뮤니티 신뢰 구축</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>규제 준수 전략 수립</strong>
+                        <ul>
+                            <li>법률 자문 확보</li>
+                            <li>지역 제한 적용</li>
+                            <li>점진적 라이센스 취득</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>핵심 파트너십 확보</strong>
+                        <ul>
+                            <li>블록체인 인큐베이터 2-3개</li>
+                            <li>VC 네트워크</li>
+                            <li>초기 프로젝트 3-5개</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>보수적 목표 설정</strong>
+                        <ul>
+                            <li>12-17개 런치패드 (vs 24개)</li>
+                            <li>50-150% ROI (vs 2,828%)</li>
+                            <li>2-3년 장기 관점</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <h3>예상 타임라인</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>기간</th>
+                        <th>마일스톤</th>
+                        <th>성공 지표</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Month 0-3</strong></td>
+                        <td>준비 + 파일럿</td>
+                        <td>
+                            - Seed $300K 확보<br>
+                            - 법률 자문 고용<br>
+                            - 파일럿 2-3개 성공
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Month 4-6</strong></td>
+                        <td>초기 트랙션</td>
+                        <td>
+                            - 런치패드 4-6개<br>
+                            - 커뮤니티 1,000+<br>
+                            - 손익분기 근접
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Month 7-12</strong></td>
+                        <td>안정화</td>
+                        <td>
+                            - Series A $500K<br>
+                            - 런치패드 6-8개<br>
+                            - 흑자 전환<br>
+                            - LP $4-7M
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Year 2</strong></td>
+                        <td>확장</td>
+                        <td>
+                            - 라이센스 취득<br>
+                            - 글로벌 진출<br>
+                            - ROI 100-200%
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Go / No-Go 결정</h3>
+
+            <div class="alert alert-info">
+                <h4>✅ GO (진행) 조건:</h4>
+                <ul>
+                    <li>Seed $300K 확보 가능</li>
+                    <li>크립토 전문 변호사 확보 가능</li>
+                    <li>3명 코어팀 구성 가능</li>
+                    <li>2-3개 초기 프로젝트 확보</li>
+                    <li>2-3년 장기 관점 수용</li>
+                </ul>
+
+                <h4>❌ NO-GO (중단) 조건:</h4>
+                <ul>
+                    <li>자금 조달 불가</li>
+                    <li>법률 리스크 감당 불가</li>
+                    <li>팀 구성 불가</li>
+                    <li>빠른 수익 기대 (6개월 이내)</li>
+                    <li>파일럿 프로그램 거부</li>
+                </ul>
+            </div>
+
+            <h3>최종 평가</h3>
+
+            <pre>【원래 MD 파일 계획】
+현실성: 35% (낮음)
+성공 확률: &lt;20%
+주요 문제: 과도한 낙관, 리스크 간과
+평가: ❌ 현재 계획으로는 권장하지 않음
+
+【개선된 계획】
+현실성: 68% (중간)
+성공 확률: 40-60%
+필요 조치: 10가지 핵심 개선 사항 적용
+평가: ✅ 조건부 실행 가능
+
+【권장 사항】
+1. Seed Round 우선 확보 ($300K)
+2. 법률 자문 즉시 고용
+3. 파일럿 프로그램 설계
+4. 파트너십 확보
+5. 위 조건 충족 시 → GO
+6. 조건 미충족 시 → NO-GO</pre>
+
+            <div class="alert alert-success">
+                <h3>💡 마지막 조언</h3>
+                <p>LuminaDex는 <strong>야심찬 프로젝트</strong>이지만 <strong>실현 불가능하지 않습니다</strong>.</p>
+                <p>다만 <strong>현실을 직시</strong>하고 <strong>보수적으로 접근</strong>해야 합니다.</p>
+                <p><strong>빠른 대박</strong>이 아닌 <strong>견고한 비즈니스 구축</strong>에 집중하세요.</p>
+                <p>규제 리스크를 절대 간과하지 마세요. <strong>법률 자문은 필수</strong>입니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 LuminaDex. All rights reserved.</p>
+        <p class="footer-note">이 문서는 내부 전략 분석 자료입니다. 투자 권유가 아닙니다.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

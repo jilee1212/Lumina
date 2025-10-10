@@ -327,6 +327,8 @@ body {
 .card-cashflow:hover { border-left: 5px solid #48bb78; }
 .card-simulation:hover { border-left: 5px solid #4299e1; }
 .card-deployment:hover { border-left: 5px solid #9f7aea; }
+.card-allocation:hover { border-left: 5px solid #38b2ac; }
+.card-reality:hover { border-left: 5px solid #f6ad55; }
 .card-strategy:hover { border-left: 5px solid #ed8936; }
 
 /* ==============================================
